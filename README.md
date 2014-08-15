@@ -27,5 +27,5 @@ d. look for your app in folder "release"
 
 Please feel free to contact with me if you find any bugs.
 
-8-15 update Please replace your build.bat with the build-combine.bat. Otherwise it won't work.
+8-15 update Please replace your build.bat with the build-combine.bat.
 --------------------------------
