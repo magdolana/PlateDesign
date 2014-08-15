@@ -1,0 +1,10 @@
+{
+    "update": {
+        "version": "0.8",
+        "filename":"Hedwig-0.8.zip",
+        "protocol":"http",
+        "host":"localhost",
+        "port":"80",
+        "path":"/serverEnd/Hedwig-0.8.zip"
+    }
+}
