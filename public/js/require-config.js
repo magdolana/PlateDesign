@@ -11,7 +11,6 @@ requirejs.config({
     'domReady':                 'public/js/vendor/requirejs/require-domReady'
     //indluce your own paths here:
   },
-
   shim: {
     'angular': {
       'exports': 'angular'
@@ -22,10 +21,10 @@ requirejs.config({
         deps:['jquery']
     },
     "jquery.alpha":         ["jquery"],
-    "jquery.beta":          ["jquery"]
-  }    
+    "jquery.beta":          ["jquery"],
     
+  }
 });
- 
+
 //after confige for paths and shim activate main.js
 requirejs(['public/js/main']);

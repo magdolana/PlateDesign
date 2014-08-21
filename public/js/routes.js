@@ -39,10 +39,10 @@ define(['./app','./config'], function (app) {
             })
         .state('about',
             {
-                url:'/hello3',
-                controller:  'HelloController3',
-                templateUrl: 'views/hello3.html'
-            })            
+                url:'/about',
+                controller:  'UpdaterCtrl',
+                templateUrl: 'views/about.html'
+            })
             ;
       
       //Define a route that has a route parameter in it (:customerID)

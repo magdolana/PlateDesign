@@ -7,7 +7,8 @@ define(
         [
         'public/js/controllers/HelloController1',
         'public/js/controllers/HelloController2',
-        'public/js/controllers/HelloController3'
+        'public/js/controllers/HelloController3',
+        'public/js/controllers/updaterCtrl',
         ],
         function () {}
 );

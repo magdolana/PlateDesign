@@ -111,7 +111,7 @@ if (process.platform.match(/^win/)) {                       //http://stackoverfl
 }
 
 if (DEBUG_MODE || DEV_MODE) {                               //let nodejs show toolbar or not.
-  win.showDevTools();                                       //Activate it for develop purpose.
+  //win.showDevTools();                                       //Activate it for develop purpose.
 }
 
 pathfrags = process.execPath.split(ds);                     //About path.
@@ -161,7 +161,7 @@ if (fs.existsSync(infoFile)) {                      //if file exist.
 console.log("Operation plantform:     ", platform);
 console.log("Operation plantform arch:", platformArch);
 
-console.log("APP Path:                ", __APPDIR);
+console.log("__APPDIR:                ", __APPDIR);
 console.log("updateDir path:          ", updateDir);
 console.log("__PARENTDIR Path:        ", __PARENTDIR);
 console.log("__HEDWIGDIR Path:        ", __HEDWIGDIR);
@@ -245,8 +245,8 @@ restartApp = function() {                                                       
       cwd: __HEDWIGDIR
     });
   }
-  if (!(DEBUG_MODE || DEV_MODE)) {                                                  //如果不是Dev 就 关闭窗口
-    //return gui.Window.get().close(true);
+  if ((DEBUG_MODE || DEV_MODE)) {                                                  //如果不是Dev 就 关闭窗口
+    return gui.Window.get().close(true);
   }
 };
 

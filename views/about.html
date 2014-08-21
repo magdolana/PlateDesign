@@ -1,3 +1,11 @@
-<div>
-    This is the about page
-</div>
+This is about page, you can review news and get update information
+<br>
+Locol version:{{localVersion}}
+<br>
+{{message}}
+<br>
+<button
+    ng-click="updateNow()"
+    ng-Show="showUpdateButton()">
+    Click to download
+</button>
