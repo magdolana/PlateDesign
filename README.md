@@ -1,4 +1,4 @@
-nw-app
+LS-SEED
 ======
 
 node webkit app seed project
@@ -39,5 +39,11 @@ Newest version now be able to update the program as we want.
 6. update.exe will look for files on the serverend ->download->decompress->overwrite->restart->close itself
 7. Because we are still test the seed. Pleaes look for the newest version in the  test folder. Thank you.
 
-If you find any bugs, plesae let me know. ^_^
+8-26
+1. Bugs report
+a. updaterCtrl.js line 86: need to detect for platform and adjust file path
+b. install.js     line 136-150 need to adjust file path for Mac and linux.
+
+
+If you find any bugs, please let me know. ^_^
 --------------------------------

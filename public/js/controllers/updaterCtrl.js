@@ -78,7 +78,14 @@ define(['../module'], function (app) {
         pathfrags = process.execPath.split(ds);
         __APPDIR='';
         len= pathfrags.length;
-        for (index = _i = 0, _len = pathfrags.length; _i < _len; index = ++_i) {
+        _len = pathfrags.length;
+        
+        if(platform ==='osx' || platform ==='linux' ){
+            len=len-6;
+            _len=_len-6;
+        }
+        
+        for (index = _i = 0; _i < _len; index = ++_i) {
             frag = pathfrags[index];
             if (index < len - 1) {
                 __APPDIR += frag + ds;
@@ -107,7 +114,7 @@ define(['../module'], function (app) {
         var activateUpdate=function(){
             if(platform === 'win'){
                 gui.Shell.openItem(path.join(__UPDATEDIR,applicationExecutable+ '.exe' ));
-                console.log('starting', path.join(__UPDATEDIR, applicationExecutable + '.app'));
+                console.log('starting', path.join(__UPDATEDIR, applicationExecutable + '.exe'));
             }else if( platform === 'osx'){
                 gui.Shell.openItem(path.join(__UPDATEDIR, applicationExecutable + '.app'));
             }else{
