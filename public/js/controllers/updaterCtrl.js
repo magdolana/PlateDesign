@@ -44,7 +44,7 @@ define(['../module'], function (app) {
             frag;
             
             DEBUG_MODE=false;
-            DEV_MODE=false;
+            DEV_MODE=true;
             win = gui.Window.get();
             
             console.log('GUI test',gui);
@@ -78,14 +78,14 @@ define(['../module'], function (app) {
         pathfrags = process.execPath.split(ds);
         __APPDIR='';
         len= pathfrags.length;
-        _len = pathfrags.length;
         
-        if(platform ==='osx' || platform ==='linux' ){
-            len=len-6;
-            _len=_len-6;
-        }
+        //_len = pathfrags.length;
+        //if( platform === 'osx' || platfrom ==='linux' ){
+         //   len=len-6;
+          //  _len=_len-6;
+        //}
         
-        for (index = _i = 0; _i < _len; index = ++_i) {
+        for (index = _i = 0,_len = pathfrags.length; _i < _len; index = ++_i) {
             frag = pathfrags[index];
             if (index < len - 1) {
                 __APPDIR += frag + ds;
@@ -93,14 +93,17 @@ define(['../module'], function (app) {
         }
         __CHILDDIR = path.join(__APPDIR, "update" + ds);
         
-        if (platform === 'win' || platform === 'linux'||platform ==='osx') {
+        if (platform === 'win' || platform === 'linux') {
             __UPDATEDIR = __CHILDDIR;
         }
         // no idea why Mac need this
         else{
+            __UPDATEDIR = path.join(__APPDIR,"..","..","..","..","..","..");
+            /*
             updateDir = path.join(__APPDIR, '..', '..', '..', '..', '..');
             __EXTRACTDIR = path.join(updateDir, '..', '..', '..');
             __UPDATEDIR = path.join(__EXTRACTDIR, '..');
+             */
         }
         console.log('pathfrags test:',pathfrags);
         console.log('__APPDIR test:',__APPDIR);
@@ -117,16 +120,14 @@ define(['../module'], function (app) {
                 console.log('starting', path.join(__UPDATEDIR, applicationExecutable + '.exe'));
             }else if( platform === 'osx'){
                 gui.Shell.openItem(path.join(__UPDATEDIR, applicationExecutable + '.app'));
+                console.log('starting', path.join(__UPDATEDIR, applicationExecutable + '.app'));
             }else{
+                console.log('starting', path.join(__UPDATEDIR, applicationExecutable + 'up4date'));
                 execFile(path.join(__UPDATEDIR,applicationExecutable),[],{
                     cwd:__UPDATEDIR
                 });
             }
-            if(!(DEBUG_MODE||DEV_MODE)){
-                return gui.Window.get().close(true);
-            }
         };
-        
         
         //For somereason http: get can't understand localhost
         $http.get("http://127.0.0.1:80/serverEnd/package.json")
@@ -153,6 +154,11 @@ define(['../module'], function (app) {
             $scope.updateNow=function(){
                 if(confirm('Update need to close the App. Continue?')){
                     activateUpdate();
+                    console.log('activate complete');
+                    if(!(DEBUG_MODE||DEV_MODE)){
+                        return gui.Window.get().close(true);
+                        //return gui.App.closeAllWindows(true);
+                    }
                 }
             };
         })
@@ -160,7 +166,6 @@ define(['../module'], function (app) {
             console.log('Error checking if is a new version available', error);
         });
         
-
     });
 });
 /*
