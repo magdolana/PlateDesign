@@ -117,38 +117,82 @@ if (DEBUG_MODE || DEV_MODE) {                               //let nodejs show to
 pathfrags = process.execPath.split(ds);                     //About path.
 __APPDIR = '';                                              //Directy of the App.
 len = pathfrags.length;                                     //path length.
-for (index = _i = 0, _len = pathfrags.length; _i < _len; index = ++_i) {        //
+_len = pathfrags.length;
+if(platform === 'osx' || platform === 'linux'){
+   len=len-6;
+   _len=_len-6;
+}
+
+for (index = _i = 0; _i < _len; index = ++_i) {        //
   frag = pathfrags[index];                                  //
   if (index < len - 1) {                                    //
     __APPDIR += frag + ds;                                  //assemble frag+"\\" or "/" to   _APPDIR
   }
 }
 __PARENTDIR = path.join(__APPDIR, ".." + ds);                   //http://nodejs.org/api/path.html
+if(platform === 'osx'){
+    __PARENTDIR = path.join(__APPDIR);
+}
+
+console.log("__PARENTDIR path:",__PARENTDIR);
+//__APPDIR path: /Users/DiorCK/Documents/nodebob/app/
+//__PARENTDIR path: /Users/DiorCK/Documents/nodebob/app/ 
 
 if (platform === 'win' || platform === 'linux') {               //Get appdir
-  __HEDWIGDIR = __PARENTDIR;
-  __EXTRACTDIR = __PARENTDIR;
-  __DOWNLOADDIR = __APPDIR;
-  infoFile = path.join(__PARENTDIR, "VERSION");
-  if (DEV_MODE) {                                                   //if 
-    __EXTRACTDIR = path.join(__PARENTDIR, '..', 'test');
-    __HEDWIGDIR = path.join(__PARENTDIR, '..', 'test');
-    __DOWNLOADDIR = path.join(__PARENTDIR, '..', 'test');
-  }
+    __HEDWIGDIR = __PARENTDIR;
+    __EXTRACTDIR = __PARENTDIR;
+    __DOWNLOADDIR = __APPDIR;
+    infoFile = path.join(__PARENTDIR, "VERSION");
+    if (DEV_MODE) {                                                   //if 
+      __EXTRACTDIR = path.join(__PARENTDIR, '..', 'test');
+      __HEDWIGDIR = path.join(__PARENTDIR, '..', 'test');
+      __DOWNLOADDIR = path.join(__PARENTDIR, '..', 'test');
+    }
 } else {
-  updateDir = path.join(__APPDIR, '..', '..', '..', '..', '..');
-  __EXTRACTDIR = path.join(updateDir, '..', '..', '..');
-  __HEDWIGDIR = path.join(__EXTRACTDIR, '..');
-  if (DEV_MODE) {
-      //__EXTRACTDIR = path.join(updateDir, '..', '..', '..', 'test', 'Circadio.app');
-    __EXTRACTDIR = path.join(updateDir, '..', '..', '..', 'test', 'Hedwig.app');
+    //updateDir = path.join(__APPDIR, '..', '..', '..', '..', '..');
+    //updateDir path: /Users/DiorCK/Documents/nodebob/app/ 
+    updateDir = path.join(__APPDIR);
+    __EXTRACTDIR = path.join(updateDir);
     __HEDWIGDIR = path.join(__EXTRACTDIR, '..');
-  }
-  infoFile = path.join(__EXTRACTDIR, 'Contents', 'Resources', "VERSION");
-  __DOWNLOADDIR = path.join(__EXTRACTDIR, 'Contents', 'Resources', 'Updates');
-  if (!fs.existsSync(__DOWNLOADDIR)) {          //http://nodejs.org/api/fs.html#fs_fs_existssync_path
-    fs.mkdirSync(__DOWNLOADDIR);                //http://nodejs.org/api/fs.html#fs_fs_mkdirsync_path_mode
-  }
+    
+    console.log("updateDir path:",updateDir);
+    
+    
+    console.log("__EXTRACTDIR path:",__EXTRACTDIR);
+    //__EXTRACTDIR path: /Users/DiorCK/Documents/nodebob/app/
+    
+    console.log("__HEDWIGDIR:",__HEDWIGDIR);
+    //updateDir path: /Users/DiorCK/Documents/nodebob/app/
+            
+    //__HEDWIGDIR path: /Users/DiorCK/Documents/nodebob
+    
+    
+    if (DEV_MODE) {
+        //__EXTRACTDIR = path.join(updateDir, '..', '..', '..', 'test', 'Hedwig.app');
+        //__HEDWIGDIR = path.join(__EXTRACTDIR, '..');
+        
+      __EXTRACTDIR = path.join(updateDir,'test', 'Hedwig.app');
+      __HEDWIGDIR = path.join(__EXTRACTDIR, '..');
+    }
+    console.log("DEV __EXTRACTDIR:",__EXTRACTDIR);
+    console.log("DEV __HEDWIGDIR:",__HEDWIGDIR);
+    //DEV __EXTRACTDIR: /Users/DiorCK/Documents/nodebob/app/test/Hedwig.app
+    //DEV __HEDWIGDIR: /Users/DiorCK/Documents/nodebob/app/test
+    
+    infoFile = path.join(__EXTRACTDIR, 'Contents', 'Resources', "VERSION");
+    console.log("infoFile path:",infoFile);
+    //infoFile path: /Users/DiorCK/Documents/nodebob/app/test/Hedwig.app/Contents/Resources/VERSION
+    
+    __DOWNLOADDIR = path.join(__EXTRACTDIR, 'Contents', 'Resources', 'Updates');
+    console.log("__DOWNLOADDIR",__DOWNLOADDIR);
+    //infoFile path: /Users/DiorCK/Documents/nodebob/app/test/Hedwig.app/Contents/Resources/Updates
+    
+    __EXTRACTDIR = path.join(__EXTRACTDIR,"..");
+    
+    
+    if (!fs.existsSync(__DOWNLOADDIR)) {
+      fs.mkdirSync(__DOWNLOADDIR);
+    }
 }
 
 //console.log(__DOWNLOADDIR);                         //in console show download dir
@@ -160,7 +204,6 @@ if (fs.existsSync(infoFile)) {                      //if file exist.
 
 console.log("Operation plantform:     ", platform);
 console.log("Operation plantform arch:", platformArch);
-
 console.log("__APPDIR:                ", __APPDIR);
 console.log("updateDir path:          ", updateDir);
 console.log("__PARENTDIR Path:        ", __PARENTDIR);
@@ -168,7 +211,6 @@ console.log("__HEDWIGDIR Path:        ", __HEDWIGDIR);
 console.log("__EXTRACTDIR Path:       ", __EXTRACTDIR);
 console.log("__DOWNLOADDIR Path:      ", __DOWNLOADDIR);
 console.log("Infofile Path:           ", infoFile);
-
 
 console.log("frag:", frag);//    nw.exe
 console.log("ds:", ds);  //   \
@@ -211,7 +253,7 @@ extractUpdate = function(filepath, err) {
           $('.update-text').text('Cleaning up');
           $('#description').text('Deleting downloaded update');
           fs.unlinkSync(filepath);
-          $('#description').text('All done, restarting Circadio!');
+          $('#description').text('All done, restarting Hedwig!');
           return restartApp();
         }
       });
@@ -245,7 +287,7 @@ restartApp = function() {                                                       
       cwd: __HEDWIGDIR
     });
   }
-  if ((DEBUG_MODE || DEV_MODE)) {                                                  //如果不是Dev 就 关闭窗口
+  if (!(DEBUG_MODE || DEV_MODE)) {                                                  //如果不是Dev 就 关闭窗口
     return gui.Window.get().close(true);
   }
 };
