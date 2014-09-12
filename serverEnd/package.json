@@ -1,0 +1,36 @@
+{
+    "update": {
+        "github":"master",
+        "protocol":"http",
+        "host":"localhost",
+        "port":"80",
+        
+        "win":{
+            "version": "0.8",
+            "filename":"ls-seed-win-ia32.zip",
+            "path":"/downloads/latest/ls-seed-win-ia32.zip"
+        },
+        
+        "osx":{
+            "version": "0.8",
+            "filename":"ls-seed-osx-ia32.zip",
+            "path":"/downloads/latest/ls-seed-osx-ia32.zip"
+        },
+        
+        "linux_ia32":{
+            "version": "0.8",
+            "filename":"ls-seed-linux-ia32.tar.gz",
+            "path":"/downloads/latest/ls-seed-linux-ia32.tar.gz"
+        },
+        
+        "linux_x64":{
+            "version": "0.8",
+            "filename":"ls-seed-linux-x64.tar.gz",
+            "path":"/downloads/latest/ls-seed-linux-x64.tar.gz"
+        },
+        "unknown":{
+            "version":0.0
+        }
+    },
+    "Note":"need to include all the platform "
+}
