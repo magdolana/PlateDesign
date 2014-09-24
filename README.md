@@ -1,18 +1,19 @@
 ##ls-seed project
-This project can be built using "Nodebob" which is really easy to use.
+This project can be built using "Nodebob".
+It support Windows,Mac,iOS and Android.
 Besides, there are some prerequisites before you build ls-seed project. 
 
 
 ###Environment you need to prepare.
-Install nodebob from https://github.com/geo8bit/nodebob
+1) Install nodebob from https://github.com/geo8bit/nodebob
 
-Install ls-seed project from https://github.com/LabShare/ls-seed
+2) Install ls-seed project from https://github.com/LabShare/ls-seed
 
-Copy ls-seed source file to '../../nodebob/app‘ folder.
+3) Copy ls-seed source file to one of the nodebob folder --'../../nodebob/app'.(Path depends on where you locate your nodebob)
 
-Install the latest version of node.js
+4) Install the latest version of nodejs from  http://nodejs.org/
 
-In command line :
+5) In command line :
 
 go to the folder '../../nodebob/app' with cd in command line then:
 
@@ -28,7 +29,7 @@ npm install progress
 
 npm install superagent
 
-Download and install Netbean or Webstorm
+6) Download and install Netbean or Webstorm
 
 ###Server configure.
 1) Install any server: Nginx, Tomcat...
@@ -37,17 +38,19 @@ Download and install Netbean or Webstorm
 
 3) Test your server by inputing: http://127.0.0.1:80. If you can see the welcome pages, then you are good.
 
+Check out the configure file 'nodebob/app/serverEnd/nginx.conf' when using Nginx.
+
 4) For mobile version (ios or android), you need to edit the updaterCtrl.js in mobile/public/js/controllers.
 
-Try to change the serverAddress to your local IP. 
+Try to change the serverAddress to your local IP.
 
 ###Nodebob configure
 1) LS-seed project rewrite the nodebob script for Windows and Mac. Take your time to understand the scripts first.
 
-2) Copy three ls-seed nodebob scripts (build-combine.bat, build.osx update.sh and build.osx ls-seed.sh) into the nodebob root folder.(along with original build.bat)
+2) Copy three scripts: build-combine.bat, build.osx update.sh and build.osx ls-seed.sh) into the nodebob root folder.(along with original build.bat)
 
 ###Windows plantform Build steps
-1) Run the 'nodebob/app/build-combine.bat' script..
+1) Run the 'nodebob/build-combine-ls-seed-win.bat' script..
 
 2) Go to release folder. There should be two .exe files exist: 'release/ls-seed.exe' and 'release/update/update.exe'
 
@@ -68,7 +71,7 @@ Try to change the serverAddress to your local IP.
 7) Go to folder 'release/update.exe' and run it. This will call update.exe alone. If there is newer version, it will download it and run it.
 
 ###Mac OS X Build steps
-1) Move nodebob/app/update folder to somewhere else and run the 'nodebob/app/build-ls-seed-app.sh' scirpt..
+1) Move 'nodebob/app/update' folder to somewhere else and run the 'nodebob/app/build-ls-seed-app.sh' scirpt..
 
 2) Delete all the files in nodebob/app folder and copy the original update folder to 'nodebob/app'
 
@@ -98,7 +101,7 @@ Tips: Make your own copy of 'update.app' to somewhere else first!!
 6) 'update.app' will call newest 'ls-seed.app' then close itself.
 
 
-##Tips: In order to disable debug mode. Edit 'Root/update/js/install.js' and change variable debug to false.
+##Tips: In order to disable debug mode. Edit 'XXX/update/js/install.js' and change variable debug to false.
 
 ###Making mobile applications
 Apache Cordova make it possible for us using the same code(html, js and css) to build mobile applications.
