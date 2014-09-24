@@ -7,8 +7,9 @@ define(['../module'], function (app) {
     'use strict';
     app.controller('updaterCtrl', function ($scope, $http, $window) {
         $scope.localVersion=$window.settings.appVersion;
-        $scope.showUpdateButton= false;
         $scope.message="Checking for update...Please wait......";
+        $scope.showUpdateButton= false;
+        
         global.$=window.$;
         var
             DEBUG_MODE              = true,                                                             //Debug switch
@@ -17,7 +18,7 @@ define(['../module'], function (app) {
             execFile                = require('child_process').execFile,
             fs                      = require('fs'),
             gui                     = window.require('nw.gui'),                                         //For node nw.exe
-            serverAddress           = (DEBUG_MODE == true) ?  "localhost:80":"update.gethedwig.com",      //** need to configure **
+            serverAddress           = (DEBUG_MODE == true) ?  "localhost:80":"update.getlsseed.com",      //** need to configure **
             protocol                = (DEBUG_MODE == true) ?  "http":"https",
             url                     = protocol + "://" + serverAddress+"/package.json",
             
@@ -69,17 +70,17 @@ define(['../module'], function (app) {
                 console.log('starting', path.join(__UPDATEDIR, applicationExecutable + '.exe'));
             }else if( platform === 'osx'){
                     if (fs.existsSync(path.join(__UPDATEDIR, applicationExecutable + '.app'))) {
-                        console.log("Find it:",path.join(__UPDATEDIR, applicationExecutable + '.app'));
                         gui.Shell.openItem(path.join(__UPDATEDIR, applicationExecutable + '.app'));
+                        console.log('starting',path.join(__UPDATEDIR, applicationExecutable + '.app'));
                     }
                     else{
-                        console.log("Can't find the update.app");
+                        console.log("Can't find the update.app. Activate failed!");
                     }
             }else{
-                console.log('starting', path.join(__UPDATEDIR, applicationExecutable));
                 execFile(path.join(__UPDATEDIR,applicationExecutable),[],{
                     cwd:__UPDATEDIR
                 });
+                console.log('starting', path.join(__UPDATEDIR, applicationExecutable));
             }
         };
         
@@ -104,17 +105,20 @@ define(['../module'], function (app) {
                                         :
                                     "Platform not support";
                     if( result === "Platform not support"){
-                        console.log('Platform not support. Will be supported later');
+                        $scope.message= 'Platform not support. Will be supported later';
+                        return false;
+                        console.log('Platform not support. Will be supported later');                   //** need to configure **
                     }
                     remoteVersion=result.version;
-                    if ($window.settings.appVersion < remoteVersion){
-                        $scope.message="New version available v:"+remoteVersion;
+                    if ($scope.localVersion < remoteVersion){
+                        $scope.message="New version available v:"+remoteVersion+"!  Need Update!";
+                        $scope.test=remoteVersion;
                         console.log("Local version:",$window.settings.appVersion);
                         console.log("New version available v:"+remoteVersion+"!  Need Update!");
                         return true;
                     }
                     else{
-                        $scope.message="Newest version already!";
+                        $scope.message="No need for update!";
                         console.log("No need for update!");
                         return false;
                     }
@@ -130,6 +134,7 @@ define(['../module'], function (app) {
             };
         })
         .error(function (error) {
+            $scope.message="Error checking if is a new version available";
             console.log('Error checking if is a new version available', error);
         });
     });

@@ -1,7 +1,7 @@
 //Install module
 var     
         DEBUG_MODE              = true,                                                             //Debug switch
-        applicationExecutable   = "Hedwig",                                                         //** need to configure **
+        applicationExecutable   = "ls-seed",                                                         //** need to configure **
         admzip                  = require('adm-zip'),                                               // zip module
         http                    = require('http'),                                                  // require http
         https                   = require('https'),                                                 // require https
@@ -13,7 +13,7 @@ var
         exec                    = require('child_process').exec,
         gui                     = window.require('nw.gui'),                                         //For node nw.exe
         win                     = gui.Window.get(),
-        hostname                = (DEBUG_MODE==true) ?  "127.0.0.1":"update.gethedwig.com",      //** need to configure **
+        hostname                = (DEBUG_MODE==true) ?  "127.0.0.1":"update.getlsseed.com",      //** need to configure **
         port                    = "80",
         protocol                = (DEBUG_MODE==true) ?  "http":"https",
         url                     = "" + protocol + "://" + hostname + "/package.json",
@@ -33,7 +33,7 @@ var
         frag,
         __APPDIR                = "",                                                               //update.exe or update.app dir
         __PARENTDIR,                                                                                //In windows is uppder dir. In Mac is current dir.
-        __HEDWIGDIR,   
+        __LSSEEDDIR,   
         __EXTRACTDIR,
         __DOWNLOADDIR,
         __TARGETDIR,
@@ -71,35 +71,35 @@ var
     
     
     //*****************************************************
-    //Get __HEDWIGDIR & __EXTRACTDIR & __DOWNLOADDIR
+    //Get __LSSEEDDIR & __EXTRACTDIR & __DOWNLOADDIR
     if (platform === 'win' || platform === 'linux') {
-        __HEDWIGDIR = __PARENTDIR;
+        __LSSEEDDIR = __PARENTDIR;
         __EXTRACTDIR = __PARENTDIR;
         __DOWNLOADDIR = __APPDIR;
         versionFile = path.join(__PARENTDIR, "VERSION");
         if (DEBUG_MODE) {
             __EXTRACTDIR = path.join(__PARENTDIR, '..', 'test');
-            __HEDWIGDIR = path.join(__PARENTDIR, '..', 'test');
+            __LSSEEDDIR = path.join(__PARENTDIR, '..', 'test');
             __DOWNLOADDIR = path.join(__PARENTDIR, '..', 'test');
         }
     }else{
         __EXTRACTDIR = path.join(__PARENTDIR);  //PARENTDIR is /app
-        __TARGETDIR = path.join(__EXTRACTDIR,applicationExecutable+".app");//  /app/Hedwig.app
+        __TARGETDIR = path.join(__EXTRACTDIR,applicationExecutable+".app");
         if (DEBUG_MODE) {
             __EXTRACTDIR = path.join(__PARENTDIR,'test');// APP nodebob/app/test
             
         }
-        __HEDWIGDIR   = path.join(__EXTRACTDIR);
+        __LSSEEDDIR   = path.join(__EXTRACTDIR);
         
         console.log("__APPDIR path:           ", __APPDIR);
         console.log("__PARENTDIR Path:        ", __PARENTDIR);
-        console.log("__HEDWIGDIR Path:        ", __HEDWIGDIR);
+        console.log("__LSSEEDDIR Path:        ", __LSSEEDDIR);
         console.log("__EXTRACTDIR Path:       ", __EXTRACTDIR);
         console.log("__TARGETDIR Path:        ", __TARGETDIR);
         console.log("__DOWNLOADDIR Path:      ", __DOWNLOADDIR);
         
         versionFile   = path.join(__TARGETDIR, 'Contents', 'Resources', "VERSION");
-        __DOWNLOADDIR = path.join(__TARGETDIR, 'Contents', 'Resources', 'Updates');
+        __DOWNLOADDIR = path.join(__TARGETDIR, 'Contents', 'Resources');
         if (!fs.existsSync(__DOWNLOADDIR)) {
             fs.mkdirSync(__DOWNLOADDIR);
         }
@@ -115,7 +115,7 @@ var
 console.log("Operation plantform:     ", platform);
 console.log("__APPDIR path:           ", __APPDIR);
 console.log("__PARENTDIR Path:        ", __PARENTDIR);
-console.log("__HEDWIGDIR Path:        ", __HEDWIGDIR);
+console.log("__LSSEEDDIR Path:        ", __LSSEEDDIR);
 console.log("__EXTRACTDIR Path:       ", __EXTRACTDIR);
 console.log("__TARGETDIR Path:        ", __TARGETDIR);
 console.log("__DOWNLOADDIR Path:      ", __DOWNLOADDIR);
@@ -159,7 +159,7 @@ extractUpdate = function(filepath, err) {
                     $('.update-text').text('Cleaning up');
                     $('#description').text('Deleting downloaded update');
                     fs.unlinkSync(filepath);
-                    $('#description').text('All done, restarting Hedwig!');
+                    $('#description').text('All done, restarting LS-SEED!');
                     return restartApp();
                 }
             });
@@ -171,12 +171,12 @@ extractUpdate = function(filepath, err) {
                 return extractError(filepath);
             }
             if (platform === 'linux') {
-                fs.chmodSync(path.join(__HEDWIGDIR, applicationExecutable), '775');
+                fs.chmodSync(path.join(__LSSEEDDIR, applicationExecutable), '775');
             }
             $('.update-text').text('Cleaning up');
             $('#description').text('Deleting downloaded update..');
             fs.unlinkSync(filepath);
-            $('#description').text('All done, restarting Hedwig!');
+            $('#description').text('All done, restarting LS-SEED!');
             return restartApp();
         }
     }, 220);
@@ -184,13 +184,13 @@ extractUpdate = function(filepath, err) {
 
 restartApp = function() {
     if (platform === 'win') {
-        gui.Shell.openItem(path.join(__HEDWIGDIR, applicationExecutable + '.exe'));
+        gui.Shell.openItem(path.join(__LSSEEDDIR, applicationExecutable + '.exe'));
     } else if (platform === 'osx') {
-        console.log('starting', path.join(__HEDWIGDIR, applicationExecutable + '.app'));
-        gui.Shell.openItem(path.join(__HEDWIGDIR, applicationExecutable + '.app'));
+        console.log('starting', path.join(__LSSEEDDIR, applicationExecutable + '.app'));
+        gui.Shell.openItem(path.join(__LSSEEDDIR, applicationExecutable + '.app'));
     } else {
-        execFile(path.join(__HEDWIGDIR, applicationExecutable), [], {    
-            cwd: __HEDWIGDIR
+        execFile(path.join(__LSSEEDDIR, applicationExecutable), [], {    
+            cwd: __LSSEEDDIR
       });
     }
     if (!(DEBUG_MODE)) {    

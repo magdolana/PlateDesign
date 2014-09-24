@@ -28,8 +28,15 @@
             "filename":"ls-seed-linux-x64.tar.gz",
             "path":"/downloads/latest/ls-seed-linux-x64.tar.gz"
         },
-        "unknown":{
-            "version":0.0
+        "android":{
+            "version": "0.8",
+            "filename":"ls-seed-android.zip",
+            "path":"/downloads/latest/ls-seed-android.gz"
+        },
+        "ios":{
+            "version": "0.8",
+            "filename":"ls-seed-ios.zip",
+            "path":"/downloads/latest/ls-seed-ios.zip"
         }
     },
     "Note":"need to include all the platform "

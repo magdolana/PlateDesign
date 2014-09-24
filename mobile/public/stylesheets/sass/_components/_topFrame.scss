@@ -1,0 +1,60 @@
+.topFrame {
+  background: $bodyBackground;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  border-top: 20px solid $scColor;
+  border-bottom: 1px solid $separatorDarkColor;
+  box-shadow: 0 0 7px 0px #000;
+  z-index: 100;
+  -webkit-app-region: drag;
+}
+
+.topFrame_title {
+  width: 70px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 8px auto 8px;
+  letter-spacing: 1px;
+  -webkit-app-region: no-drag;
+}
+
+
+
+.windowAction {
+  float: left;
+  margin: 15px 15px 15px 15px;
+}
+.windowAction_item {
+  float: left;
+  margin: 0 30px;
+  font-size: 30px;
+  padding: 2px 4px;
+}
+
+.appInfo {
+  float: right;
+  margin: 15px 0 0 0;
+  -webkit-app-region: no-drag;
+}
+.appInfo_item {
+  margin: 0 10px;
+  float: left;
+
+  & a {
+    font-size: 14px;
+    color: $linkColor;
+    cursor: pointer;
+  }
+
+  &:last-child a {
+    display: none;
+    color: $scColor;
+    &.updateAvailable {
+      display: block;
+    }
+  }
+}
