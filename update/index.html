@@ -9,7 +9,7 @@
         </div>
         <div class="right">
                 <h1>
-                        <span class="update-text">Connecting to server</span>
+                        <span class="update-text">Connecting to server</span>   <!--Server Message-->
                         <div class="load-spinner" style="display: inline-block">
                                 <div class="spinner">
                                         <div class="bar1"></div>
@@ -30,14 +30,14 @@
                 <div class="progress-bar" style="display: none">
                         <div class="bar" style="width: 0%"></div>
                 </div>
-                <div id="description">
+                <div id="description">                                          <!--Update Message-->
                 </div>
         </div>
         
         <script>
             global.$ = window.$;
-            var install = require("./js/install.js");
-            install();
+            var update = require("./js/update.js");
+            update();
         </script>
     </body>
 </html>

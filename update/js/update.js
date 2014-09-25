@@ -1,21 +1,21 @@
-//Install module
+//Update module
 var     
-        DEBUG_MODE              = true,                                                             //Debug switch
-        applicationExecutable   = "ls-seed",                                                         //** need to configure **
-        admzip                  = require('adm-zip'),                                               // zip module
+        DEBUG                   = true,                                                             //Debug switch
+        APP                     = "ls-seed",                                                        //** need to configure **
+        admZIP                  = require('adm-zip'),                                               // zip module
         http                    = require('http'),                                                  // require http
         https                   = require('https'),                                                 // require https
         fs                      = require('fs'),                                                    //file system
         path                    = require('path'),                                                  //file path
         request                 = require('superagent'),                                            //  It's a module used to support client-side http library support.
-        ProgressBar             = require('progress'),                                              // It's a module used to support everything we need for ProgressBar
+        progressBar             = require('progress'),                                              // It's a module used to support everything we need for ProgressBar
         execFile                = require('child_process').execFile,        
         exec                    = require('child_process').exec,
-        gui                     = window.require('nw.gui'),                                         //For node nw.exe
+        gui                     = window.require('nw.gui'),                                         //Has to be window.require
         win                     = gui.Window.get(),
-        hostname                = (DEBUG_MODE==true) ?  "127.0.0.1":"update.getlsseed.com",      //** need to configure **
+        hostname                = (DEBUG==true) ?  "127.0.0.1":"update.getlsseed.com",              //** need to configure **
         port                    = "80",
-        protocol                = (DEBUG_MODE==true) ?  "http":"https",
+        protocol                = (DEBUG==true) ?  "http":"https",
         url                     = "" + protocol + "://" + hostname + "/package.json",
         ds                      = process.platform.match(/^win/) ?"\\":"/",
         platform                = process.platform.match(/^win/) ?
@@ -39,18 +39,17 @@ var
         __TARGETDIR,
         versionFile,
         localVersion,
-        _this = this,
         
         //All the Functions are below
-        checkUpdate,
-        downloadUpdate,
-        extractError,
-        extractUpdate,
-        restartApp,
-        run,
-        showError;
+        detectNewest,
+        getNewest,
+        displayError,
+        unzipError,
+        unzipNewest,
+        reopenApp,
+        updateMain;
 
-    if (DEBUG_MODE) {
+    if (DEBUG) {
         win.showDevTools();
     }
     
@@ -66,7 +65,7 @@ var
             __APPDIR += frag + ds;
         }
     }
-    __PARENTDIR = (platform === 'osx')?     path.join(__APPDIR,"..","..",".."):    path.join(__APPDIR, ".." + ds);
+    __PARENTDIR = (platform === 'osx')?  path.join(__APPDIR,"..","..",".."):  path.join(__APPDIR, ".." + ds);
     //*****************************************************
     
     
@@ -77,27 +76,19 @@ var
         __EXTRACTDIR = __PARENTDIR;
         __DOWNLOADDIR = __APPDIR;
         versionFile = path.join(__PARENTDIR, "VERSION");
-        if (DEBUG_MODE) {
+        if (DEBUG) {
             __EXTRACTDIR = path.join(__PARENTDIR, '..', 'test');
             __LSSEEDDIR = path.join(__PARENTDIR, '..', 'test');
             __DOWNLOADDIR = path.join(__PARENTDIR, '..', 'test');
         }
     }else{
         __EXTRACTDIR = path.join(__PARENTDIR);  //PARENTDIR is /app
-        __TARGETDIR = path.join(__EXTRACTDIR,applicationExecutable+".app");
-        if (DEBUG_MODE) {
+        __TARGETDIR = path.join(__EXTRACTDIR,APP+".app");
+        if (DEBUG) {
             __EXTRACTDIR = path.join(__PARENTDIR,'test');// APP nodebob/app/test
             
         }
         __LSSEEDDIR   = path.join(__EXTRACTDIR);
-        
-        console.log("__APPDIR path:           ", __APPDIR);
-        console.log("__PARENTDIR Path:        ", __PARENTDIR);
-        console.log("__LSSEEDDIR Path:        ", __LSSEEDDIR);
-        console.log("__EXTRACTDIR Path:       ", __EXTRACTDIR);
-        console.log("__TARGETDIR Path:        ", __TARGETDIR);
-        console.log("__DOWNLOADDIR Path:      ", __DOWNLOADDIR);
-        
         versionFile   = path.join(__TARGETDIR, 'Contents', 'Resources', "VERSION");
         __DOWNLOADDIR = path.join(__TARGETDIR, 'Contents', 'Resources');
         if (!fs.existsSync(__DOWNLOADDIR)) {
@@ -125,22 +116,27 @@ console.log("ds:", ds);
 console.log("You are currently on version:", localVersion);
 
 
-extractError = function(filepath) {
+displayError = function(message) {
+    $('.update-text').text("Failed to update");
+    return $('#description').html(message);
+};
+
+unzipError = function(filepath) {
   $('.load-spinner').hide();
   $('.progress-bar').hide();
-  showError("There was an error while extracting the update. \nMake sure you have sufficient write permissions, \nand that all instances of Circadio has been terminated. <a href=\"#\" class=\"retry-update\">Try again</a>.");
+  displayError("There was an error while extracting the version we downloaded. \nMake sure you have sufficient write permissions, \nand that all instances of LS-SEED has been terminated. <a href=\"#\" class=\"retry-update\">Try again</a>.");
   return $('a.retry-update').click(function(e) {
     e.preventDefault();
-    return extractUpdate(filepath);
+    return unzipNewest(filepath);
   });
 };
 
-extractUpdate = function(filepath, err) {
+unzipNewest = function(filepath, err) {
     var msg;
-    $('.load-spinner').show();                                                    //try to extract 
-    $('.progress-bar').hide();                                                    
+    $('.load-spinner').show();
+    $('.progress-bar').hide();
     if (err) {
-        showError("Failed to download update, please try again later or contact support.");
+        displayError("Failed to download update, please try again later or contact support.");
     }
     if (err) {
         return console.log("Couldn't download update: ", err);
@@ -154,57 +150,51 @@ extractUpdate = function(filepath, err) {
             return exec("unzip -o '" + filepath + "' -d '" + __EXTRACTDIR + "'", function(err, stdout, stderr) {
                 if (err) {
                     console.log(err, stdout, stderr);
-                    return extractError(filepath);
+                    return unzipError(filepath);
                 } else {
                     $('.update-text').text('Cleaning up');
                     $('#description').text('Deleting downloaded update');
                     fs.unlinkSync(filepath);
                     $('#description').text('All done, restarting LS-SEED!');
-                    return restartApp();
+                    return reopenApp();
                 }
             });
         } else {
-            zip = new admzip(filepath);
+            zip = new admZIP(filepath);
             try {
                 zip.extractAllTo(__EXTRACTDIR, true);
             } catch (_error) {
-                return extractError(filepath);
+                return unzipError(filepath);
             }
             if (platform === 'linux') {
-                fs.chmodSync(path.join(__LSSEEDDIR, applicationExecutable), '775');
+                fs.chmodSync(path.join(__LSSEEDDIR, APP), '775');
             }
             $('.update-text').text('Cleaning up');
             $('#description').text('Deleting downloaded update..');
             fs.unlinkSync(filepath);
             $('#description').text('All done, restarting LS-SEED!');
-            return restartApp();
+            return reopenApp();
         }
     }, 220);
 };
 
-restartApp = function() {
+reopenApp = function() {
     if (platform === 'win') {
-        gui.Shell.openItem(path.join(__LSSEEDDIR, applicationExecutable + '.exe'));
+        gui.Shell.openItem(path.join(__LSSEEDDIR, APP + '.exe'));
     } else if (platform === 'osx') {
-        console.log('starting', path.join(__LSSEEDDIR, applicationExecutable + '.app'));
-        gui.Shell.openItem(path.join(__LSSEEDDIR, applicationExecutable + '.app'));
+        console.log('starting', path.join(__LSSEEDDIR, APP + '.app'));
+        gui.Shell.openItem(path.join(__LSSEEDDIR, APP + '.app'));
     } else {
-        execFile(path.join(__LSSEEDDIR, applicationExecutable), [], {    
+        execFile(path.join(__LSSEEDDIR, APP), [], {
             cwd: __LSSEEDDIR
       });
     }
-    if (!(DEBUG_MODE)) {    
+    if (!(DEBUG)) {
         return gui.Window.get().close(true);
     }
 };
 
-showError = function(message) {
-    $('.update-text').text("Failed to update");
-    return $('#description').html(message);
-};
-
-
-downloadUpdate = function(download,callback) {
+getNewest = function(download,callback) {
     var downloadPath;
     downloadPath = path.join(__DOWNLOADDIR, download.filename);
     return fs.open(downloadPath, 'w', function(err, destination) {
@@ -215,7 +205,7 @@ downloadUpdate = function(download,callback) {
             return;
         }
         
-        if (DEBUG_MODE==false) {
+        if (DEBUG==false) {
             req = https.request({
                 hostname: hostname,
                 port: port,
@@ -253,7 +243,7 @@ downloadUpdate = function(download,callback) {
                         return fs.writeSync(destination, chunk, 0, chunk.length, null);
                     } catch (_error) {
                     e = _error;
-                        return showError("There was an error while downloading the update. Make sure you have sufficient write permissions.");
+                        return displayError("There was an error while downloading the update. Make sure you have sufficient write permissions.");
                     }
                 }
             });
@@ -267,25 +257,20 @@ downloadUpdate = function(download,callback) {
     });
 };
 
-//http://visionmedia.github.io/superagent/
-checkUpdate = function(callback) {
-    var _this = this,
-    toDownload;
+detectNewest = function(callback) {
+    var toDownload;
     
     return request.get(url).end(
             function(err, res){
                 console.log("url    ",url);
-                if(err!=null){
+                if(err!==null){
                     console.log(err);
                     return callback(null, err);
                 }
-                
-                
                 toDownload  =       (platform ==='win')  ?
                         res.body.update.win:
                                     (platform ==='osx')  ?
                         res.body.update.osx:
-                                    
                                     (platform ==='linux')?
                                     (
                                             (process.arch ==='ia32')?
@@ -314,19 +299,19 @@ checkUpdate = function(callback) {
     );
 };
 
-run = function() {
-    return checkUpdate(
+updateMain = function() {
+    return detectNewest(
         function(download, err) {
             var msg;
             if (err ||!download) {
                 msg = 'No updates available.. Exiting..';
                 console.log(msg);
-                showError(msg);
+                displayError(msg);
                 $('.update-text').text("No updates available");
                 if (err) {
                   console.log(err);
                 }
-                if (!(DEBUG_MODE)) {
+                if (!DEBUG ) {
                     gui.Window.get().close(true);
                 }
                 return;
@@ -335,9 +320,9 @@ run = function() {
             $('.progress-bar').show();
             $('.update-text').html("Downloading version " + download.version);
             
-            return downloadUpdate(download,extractUpdate);
+            return getNewest(download,unzipNewest);
         }
     );
 };
 
-module.exports = run;
+module.exports = updateMain;

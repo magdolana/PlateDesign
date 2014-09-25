@@ -18,6 +18,7 @@ define(['../module'], function (app) {
             execFile                = require('child_process').execFile,
             fs                      = require('fs'),
             gui                     = window.require('nw.gui'),                                         //For node nw.exe
+            win                     = gui.Window.get(),
             serverAddress           = (DEBUG_MODE == true) ?  "localhost:80":"update.getlsseed.com",      //** need to configure **
             protocol                = (DEBUG_MODE == true) ?  "http":"https",
             url                     = protocol + "://" + serverAddress+"/package.json",
@@ -126,6 +127,7 @@ define(['../module'], function (app) {
             }
             $scope.updateNow=function(){
                 if(confirm('Update require close the App. Continue?')){
+                    
                     activateUpdate();
                     if((DEBUG_MODE)){
                         return gui.Window.get().close(false);

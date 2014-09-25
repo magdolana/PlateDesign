@@ -35,7 +35,6 @@ define(['../module'], function (app) {
                         {
                             $scope.serverMessage=remoteVersion+" available!";
                         }
-                        
                         console.log("Local version:",$window.settings.appVersion);
                         console.log("New version available v:"+remoteVersion+"!  Need Update!");
                         return true;
@@ -54,9 +53,15 @@ define(['../module'], function (app) {
         });
         
         $scope.updateNow=function(){
+            updatedServerVesion = false;
             if(confirm('Update require close the App. Continue?')){    
-                updatedServerVesion = false;
-                $scope.serverMessage="Go to wwww.getlsseed.com";
+                
+                $scope.serverMessage="Go to 192.168.11.206 to check out";
+                
+            }
+            else{
+                
+                $scope.serverMessage=remoteVersion+" available!";
             }
         };
         
