@@ -1,0 +1,15 @@
+<div>
+This is about page, you can review news and get update information
+
+<p>Local version:</p>
+<p>{{localVersion}}</p>
+
+<p>Server message:</p>
+<p>{{message}}</p>
+<!--
+If local version is older than server version, then update button will show.
+-->
+<button ng-click="updateNow()" ng-Show="showUpdateButton()">
+    Click to download
+</button>
+</div>
