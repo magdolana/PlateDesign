@@ -1,12 +1,13 @@
 {
-  "name": "LS-Seed-updater",
-  "main": "index.html",
-  "window": {
-  	"icon": "css/img/skull-icon.png",
-  	"frame": true,
-  	"width": 482,
-  	"height": 160,
-  	"resizable": false,
-  	"toolbar": true
-  }
+    "name": "LS-Seed-updater",
+    "main": "index.html",
+
+    "window": {
+          "icon": "css/img/skull-icon.png",
+          "frame": true,
+          "width": 482,
+          "height": 160,
+          "resizable": false,
+          "toolbar": true
+    }
 }
