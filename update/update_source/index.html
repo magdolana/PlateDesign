@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Hedwig Updater</title>
+        <script src="js/jquery-1.8.3.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/app.css"/>
+    </head>
+    <body>
+        <div class="left">
+        </div>
+        <div class="right">
+                <h1>
+                        <span class="update-text">Connecting to server</span>   <!--Server Message-->
+                        <div class="load-spinner" style="display: inline-block">
+                                <div class="spinner">
+                                        <div class="bar1"></div>
+                                        <div class="bar2"></div>
+                                        <div class="bar3"></div>
+                                        <div class="bar4"></div>
+                                        <div class="bar5"></div>
+                                        <div class="bar6"></div>
+                                        <div class="bar7"></div>
+                                        <div class="bar8"></div>
+                                        <div class="bar9"></div>
+                                        <div class="bar10"></div>
+                                        <div class="bar11"></div>
+                                        <div class="bar12"></div>
+                                </div>
+                        </div>	
+                </h1>
+                <div class="progress-bar" style="display: none">
+                        <div class="bar" style="width: 0%"></div>
+                </div>
+                <div id="description">                                          <!--Update Message-->
+                </div>
+        </div>
+        
+        <script>
+            global.$ = window.$;
+            var update = require("./js/update.js");
+            update();
+        </script>
+    </body>
+</html>
