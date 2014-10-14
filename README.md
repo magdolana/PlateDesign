@@ -48,7 +48,7 @@ Try to change the serverAddress to your local IP.
 
 14) grunt build                  //build the update app
 
-15) You can find the app in ls-seed/ls_seed/release/ls_seed folder. There are two folder one is for Windows another is for Mac
+15) You can find the app in ls-seed/ls_seed/release/ls_seed folder. There are two folder one is for Windows another is for Mac.
 
 
 
