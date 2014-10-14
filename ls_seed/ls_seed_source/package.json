@@ -1,13 +1,12 @@
 {
-    "name"           : "ls_seed",
-    "version":      "0.0.3",
-    "description": "This App is a demo for AnguarJS_RequireJS_Seed",
+    "name":             "ls_seed",
+    "version":          "0.0.3",
+    "description":      "This App is a demo for AnguarJS_RequireJS_Seed",
     "main": "./index.html",
     "author": "Kuan Cao",
     
     "devDependencies": {
-        "requirejs":"~2.1.14",
-        "superagent":"latest"
+        "requirejs":"~2.1.14"
     },
     
     "repository": "git@github.com:LabShare/ls-seed.git",
