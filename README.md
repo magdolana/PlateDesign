@@ -1,136 +1,100 @@
 ##ls-seed project
-This project can be built using "Grunt".
-It support Windows,Mac,iOS and Android.
-Besides, there are some prerequisites before you build ls-seed project. 
+1)Ls-Seed project is a pure framework using AngularJS, RequireJS and NodeJS webkit to build an APP for Windows, Mac, Android and IOS plantform.
 
-###Server configure.
-1) Install any server: Nginx, Tomcat...
+2)You don't need to change the source code in order to use the ls-seed framework. Based on the ls-seed framework, you can include your own CSS, JS and HTML file. 
 
-2) Configure your server host location (127.0.0.1:80) to 'serverEnd' folder
-
-3) Test your server by inputing: 'http://127.0.0.1:80'. If you can see the welcome pages, then you are good.
-
-Check out the configure file 'nodebob/app/serverEnd/nginx.conf' when using Nginx.
-
-4) For mobile version (ios or android), you need to edit the updaterCtrl.js in mobile/public/js/controllers.
-
-Try to change the serverAddress to your local IP.
-
+3)It is an cliend-end APP built by grunt(Windows and Mac version) and cordova (Android, ios version).
 
 ###Making Windows and Mac  applications.
-0) make sure you have read and write permission of the folder where you stored the ls-seed project.
 
-1) In command line: switch to ls-seed folder, then do step 2.
+###Build steps
+In the command line:
 
-2) cd ls_seed                   //switch to ls-seed/ls_seed folder
+0) git clone https://github.com/LabShare/ls-seed.git. 
 
-3) npm install                  //install node and grunt dependencies
+// Please make sure you have read and write permission of the folder where you clone and stored the ls-seed project!
+
+1) Switch to the folder where you stored ls-seed project, then do step 2.
+
+2) cd ls_seed
+
+3) npm install
    
-4) cd ls_seed_source            //switch to ls-seed/ls_seed/ls_seed_source
+4) cd ls_seed_source
 
-5) npm install                  //install node dependencies for ls_seed APP
+5) npm install
 
-6) cd..                         //switch to ls_seed
+6) cd..
 
-7) grunt build                  //build the ls_seed app in the folder 'release'
+7) grunt build
 
-8) cd..                         //switch to ls-seed root folder
+8) cd..
+//switch to the ls-seed root folder.
 
-9) cd update                    //swtich to ls-seed/update folder
-
-10) npm install                 //install node and grunt dependencies
-
-11) cd update_source            //switch to ls-seed/update/update_source folder
-
-12) npm install                 //install node dependeices for update APP
-
-13) cd..                        //switch to ls-seed/update folder
-
-14) grunt build                  //build the update app
-
-15) You can find the app in ls-seed/ls_seed/release/ls_seed folder. There are two folder one is for Windows another is for Mac.
-
+###Run the Windows and Mac APP
+You can find the app in ls-seed/ls_seed/release/ls_seed folder. There will be two folders one is for Windows another is for Mac.
 
 
 ###Making mobile applications
-Apache Cordova make it possible for us using the same code(html, js and css) to build mobile applications.
+
+####Before you bake mobile application
+1) Apache Cordova make it possible for us using the same code(html, js and css) to build mobile applications.
 You just need to install different platform sdk.
 
-More API document can be found at this url:
+2) More API document can be found at this url:
 http://cordova.apache.org/docs/en/3.5.0//guide_cli_index.md.html#The%20Command-Line%20Interface
 
+
 ###Build steps
-###0) install nodebob first. (https://github.com/geo8bit/nodebob)
 
-###1) Make a folder in apps directory
-$ cd nodebob/app/mobile
+0) In the command line, please make sure you are in the root folder. All the source file for mobile version have been stored in mobile 
 
-Target the android folder as our cordova folder
+#### Create the APP
+1) cd mobile
+//Target the android folder as our cordova folder
 
-$ mkdir cordova
-      
-Create cordova folder inside the /nodebob/app/mobile
+2) mkdir cordova
+//Create cordova folder inside the mobile
 
-$ cd cordova
+3) cd cordova
+//go to this new folder
 
-go to this new folder
+4) npm install -g cordova
+//Install cordova at the folder 'mobile/cordova'
+//if you don't have the permission please use 'sudo to grant the permission'
 
-###2) Install cordova at the folder 'nodebob/app/mobile/cordova'
+5) cordova create lsseed com.example.lsseed LsSeed 
+//Create the a framework App named lsseed with default settings.
+//We need to go to 'app/mobile/cordova/lsseed/www' and replace all the files with our lseed source files.
 
-$ npm install -g cordova
+#### Copy the source file
+6) cd cordova/lsseed/www
+//Switch to 'www' folder
 
-ps: if you don't have the permission please use 'sudo to grant the permission'
+7) rm -r index.html js css img
+//Delete the index.html, js, img and css folders inside 'www'.folder.
 
-###3) Create the App
-$ cordova create lsseed com.example.lsseed LsSeed
+8) copy our lsseed source files in folder 'mobile' into 'mobile/cordova/lsseed/www' folder
 
-ps: This lsseed App is just a framework with some default settings. 
+In command line:
 
-We need to go to 'app/mobile/cordova/lsseed/www' and replace all the files with our lseed source files.
+cp -r ./../../../public
 
-###4) Add project files
-Delete the index.html, js, img and css folders inside www.folder.
+cp -r ./../../../views
 
-$ cd lsseed/www 
+cp -r ./../../../License
 
-$ rm -r index.html js css img
+cp -r ./../../../app.ico
 
-###5) copy our lsseed source files into this folder
-Copy files and folders below:
+cp -r ./../../../index.html
 
-nodebob/app/mobile/public  
+cp -r ./../../../package.json
 
-nodebob/app/mobile/views
+cp -r ./../../../skull-icon.png
 
-nodebob/app/mobile/License
 
-nodebob/app/mobile/app.ico
-
-nodebob/app/mobile/index.html
-
-nodebob/app/mobile/package.json
-
-nodebob/app/mobile/skull-icon.png
-
-to  'mobile/cordova' folder
-
-or you can do this in command line:
-
-$ cp -r ../../../public
-
-$ cp -r ../../../views
-
-$ cp -r ../../../License
-
-$ cp -r ../../../app.ico
-
-$ cp -r ../../../index.html
-
-$ cp -r ../../../package.json
-
-$ cp -r ../../../skull-icon.png
-
-###6) install android and iOS sdk
+#### install android and iOS sdk
+After you finished the step 8 above. Please install android and ios sdk.
 
 For Android
 
@@ -146,19 +110,19 @@ http://cordova.apache.org/docs/en/3.5.0//guide_platforms_android_index.md.html#A
 For IOS
 Install Xcode and upgrade to newest version.
 
-###7) Builds iOS and Android apps
-Move to apps/cordova/lsseed folder
-cd ..
-$ cordova platform add android
-$ cordova platform add ios
-$ cordova plugin add org.apache.cordova.console
-$ cordova plugin and org.apache.cordova.inappbrowser
-
-$ cordova build
+### Builds iOS and Android apps
+1) cd..
+//Move to apps/cordova/lsseed folder
+2) cordova platform add android
+3) cordova platform add ios
+4) cordova plugin add org.apache.cordova.console
+5) cordova plugin and org.apache.cordova.inappbrowser
+6) cordova build
 
 ###8) Deploy to Android Emulator and iOS Simulator
-1)For android
-$ cordova emulate android
+1)cordova emulate android
+//For android
 
-2)For iOS
-Click Run on the Simulator.
+
+2)Click Run on the Simulator.
+//For iOS

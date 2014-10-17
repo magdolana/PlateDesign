@@ -18,7 +18,7 @@
     "readme": "package.json for ls_seed Gruntfile.js",
     "readmeFilename": "README.md",
     "window": {
-      "title": "LS-Seed Demo",
+      "title": "LS_Seed Demo",
       "icon": "./skull-icon.png",
       "toolbar": true,
       "frame": true,
