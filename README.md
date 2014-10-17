@@ -50,10 +50,6 @@ http://cordova.apache.org/docs/en/3.5.0//guide_cli_index.md.html#The%20Command-L
 0) In the command line, please make sure you are in the root folder. All the source file for mobile version have been stored in mobile 
 
 #### Create the APP
-1) cd mobile
-
-//Target the android folder as our cordova folder
-
 2) mkdir cordova
 
 Create cordova folder inside the mobile
@@ -64,15 +60,15 @@ Create cordova folder inside the mobile
 
 4) npm install -g cordova
 
-//Install cordova at the folder 'mobile/cordova'
+//Install cordova at the folder 'cordova'
 
 //if you don't have the permission please use 'sudo to grant the permission'
 
 5) cordova create lsseed com.example.lsseed LsSeed 
 
-//Create the a framework App named lsseed with default settings. We need to go to 'app/mobile/cordova/lsseed/www' and replace all the files with our lseed source files.
+//Create the a framework App named lsseed with default settings.
 
-#### Copy the source file
+#### Replace the source code in 'www' folder
 6) cd lsseed/www
 
 //Switch to 'www' folder
@@ -81,24 +77,13 @@ Create cordova folder inside the mobile
 
 //Delete the index.html, js, img and css folders inside 'www'.folder.
 
-8) copy our lsseed source files in folder 'mobile' into 'mobile/cordova/lsseed/www' folder
+8) copy our lsseed source files in folder 'ls_seed/ls_seed_source/*' into 'cordova/lsseed/www' folder
 
 In command line:
 
-cp -r ./../../../public
+cp -r ./../../../ls_seed/ls_seed_source (Mac terminal)
 
-cp -r ./../../../views
-
-cp -r ./../../../License
-
-cp -r ./../../../app.ico
-
-cp -r ./../../../index.html
-
-cp -r ./../../../package.json
-
-cp -r ./../../../skull-icon.png
-
+xcopy ..\..\..\ls_seed\ls_seed_source /s (Windows command line)
 
 #### install android and iOS sdk
 After you finished the step 8 above. Please install android and ios sdk.
@@ -119,7 +104,7 @@ Install Xcode and upgrade to newest version.
 
 #### Builds iOS and Android apps
 1) cd..
-//Move to apps/cordova/lsseed folder
+//Move to 'ls-seed/cordova/lsseed' folder
 
 2) cordova platform add android
 
@@ -135,6 +120,7 @@ Install Xcode and upgrade to newest version.
 1)cordova emulate android
 //For android
 
+When you cange your code in the future, you can just type: 'cordova android run' or 'cordova ios run' in order to bake the APP.
 
 2)Click Run on the Simulator.
 //For iOS
