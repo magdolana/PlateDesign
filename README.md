@@ -1,9 +1,9 @@
 ##ls-seed project
-1)Ls-Seed project is a pure framework using AngularJS, RequireJS and NodeJS webkit to build an APP for Windows, Mac, Android and IOS plantform.
+1) Ls-Seed project is a pure framework using AngularJS, RequireJS and NodeJS webkit to build an APP for Windows, Mac, Android and IOS plantform.
 
-2)You don't need to change the source code in order to use the ls-seed framework. Based on the ls-seed framework, you can include your own CSS, JS and HTML file. 
+2) You don't need to change the source code in order to use the ls-seed framework. Based on the ls-seed framework, you can include your own CSS, JS and HTML file. 
 
-3)It is an cliend-end APP built by grunt(Windows and Mac version) and cordova (Android, ios version).
+3) It is an cliend-end APP built by grunt(Windows and Mac version) and cordova (Android, ios version).
 
 ###Making Windows and Mac  applications.
 
@@ -45,33 +45,40 @@ You just need to install different platform sdk.
 http://cordova.apache.org/docs/en/3.5.0//guide_cli_index.md.html#The%20Command-Line%20Interface
 
 
-###Build steps
+####Build steps
 
 0) In the command line, please make sure you are in the root folder. All the source file for mobile version have been stored in mobile 
 
 #### Create the APP
 1) cd mobile
+
 //Target the android folder as our cordova folder
 
 2) mkdir cordova
-//Create cordova folder inside the mobile
+
+Create cordova folder inside the mobile
 
 3) cd cordova
+
 //go to this new folder
 
 4) npm install -g cordova
+
 //Install cordova at the folder 'mobile/cordova'
+
 //if you don't have the permission please use 'sudo to grant the permission'
 
 5) cordova create lsseed com.example.lsseed LsSeed 
-//Create the a framework App named lsseed with default settings.
-//We need to go to 'app/mobile/cordova/lsseed/www' and replace all the files with our lseed source files.
+
+//Create the a framework App named lsseed with default settings. We need to go to 'app/mobile/cordova/lsseed/www' and replace all the files with our lseed source files.
 
 #### Copy the source file
-6) cd cordova/lsseed/www
+6) cd lsseed/www
+
 //Switch to 'www' folder
 
 7) rm -r index.html js css img
+
 //Delete the index.html, js, img and css folders inside 'www'.folder.
 
 8) copy our lsseed source files in folder 'mobile' into 'mobile/cordova/lsseed/www' folder
@@ -113,10 +120,15 @@ Install Xcode and upgrade to newest version.
 ### Builds iOS and Android apps
 1) cd..
 //Move to apps/cordova/lsseed folder
+
 2) cordova platform add android
+
 3) cordova platform add ios
+
 4) cordova plugin add org.apache.cordova.console
+
 5) cordova plugin and org.apache.cordova.inappbrowser
+
 6) cordova build
 
 ###8) Deploy to Android Emulator and iOS Simulator
