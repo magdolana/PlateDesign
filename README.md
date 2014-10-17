@@ -81,9 +81,11 @@ Create cordova folder inside the mobile
 
 In command line:
 
-cp -r ./../../../ls_seed/ls_seed_source (Mac terminal)
+cp -r ./../../../ls_seed/ls_seed_source
 
-xcopy ..\..\..\ls_seed\ls_seed_source /s (Windows command line)
+or
+
+xcopy ..\..\..\ls_seed\ls_seed_source /s
 
 #### install android and iOS sdk
 After you finished the step 8 above. Please install android and ios sdk.
