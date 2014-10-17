@@ -117,7 +117,7 @@ http://cordova.apache.org/docs/en/3.5.0//guide_platforms_android_index.md.html#A
 For IOS
 Install Xcode and upgrade to newest version.
 
-### Builds iOS and Android apps
+#### Builds iOS and Android apps
 1) cd..
 //Move to apps/cordova/lsseed folder
 
@@ -131,7 +131,7 @@ Install Xcode and upgrade to newest version.
 
 6) cordova build
 
-###8) Deploy to Android Emulator and iOS Simulator
+#### Deploy to Android Emulator and iOS Simulator
 1)cordova emulate android
 //For android
 
