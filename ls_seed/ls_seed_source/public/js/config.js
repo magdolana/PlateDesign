@@ -1,8 +1,7 @@
 /**
- * defines constants for application
- * You have to include angular-ui-router here otherwise it won't work. 
+ * defines constants for the application
 */
-define(['angular','angular-ui-router'], function (ng) {
+define(['angular'], function (ng) {
   'use strict';
   return ng.module('app.constants', [])
           .constant('CONFIG', {});

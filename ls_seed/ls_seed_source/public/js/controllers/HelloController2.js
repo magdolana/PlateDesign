@@ -1,7 +1,8 @@
-//Don't forget to add your controller to controllerList.js!
 
-//You can inclue your own Services as parameter.
-define(['../module'], function (app) {
+// Don't forget to add your controller to ./index.js!
+
+// You can include your own Services as parameters.
+define(['./module'], function (app) {
   'use strict';
     app.controller('HelloController2', function ($scope,$stateParams,helloworldService) {
         //write your own controller here.

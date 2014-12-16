@@ -1,8 +1,8 @@
 
-//Don't forget to add your controller to controllerList.js!
+// Don't forget to add your controller to ./index.js!
 
-//You can inclue your own Services as parameter.
-define(['../module'], function (app) {
+// You can include your own Services as parameters.
+define(['./module'], function (app) {
 
   'use strict';
     app.controller('welcomeCtrl', function ($scope, $http, $window) {
