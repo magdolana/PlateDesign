@@ -5,9 +5,14 @@ module.exports = function (grunt) {
             options: {
                     version: '0.10.1',
                     platforms: ['win', 'osx'],
-                    buildDir: './release'                                       // Where the build version of my node-webkit app is saved
+                    buildDir: './release',               // Where the build version of my node-webkit app is saved
+                    downloadUrl: 'http://dl.nwjs.io/'    // Temporary fix: NodeWebkit binaries are located at a new address
             },
-            src: ['./ls_seed_source/**/*']                                      // Your node-webkit app
+            src: [                                       // Your node-webkit app source files
+                './package.json',
+                './index.html',
+                './public/**/*'
+            ]
         },
         copy: {
             toApp: {
@@ -37,6 +42,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-execute');
     
     // Used by CD
-    grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);                        // The name is fixed. You can't change the name.
+    grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
     
 };

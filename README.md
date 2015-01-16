@@ -1,9 +1,9 @@
 ##ls-seed project
-1) Ls-Seed project is a pure framework using AngularJS, RequireJS and NodeJS webkit to build an APP for Windows, Mac, Android and IOS plantform.
+1) Ls-Seed project is a pure framework using AngularJS, RequireJS and NodeJS webkit to build an APP for Windows, Mac, Android and IOS platform.
 
-2) You don't need to change the source code in order to use the ls-seed framework. Based on the ls-seed framework, you can include your own CSS, JS and HTML file. 
+2) You don't need to change the source code in order to use the ls-seed framework. Based on the ls-seed framework, you can include your own CSS, JS and HTML files.
 
-3) It is an cliend-end APP built by grunt(Windows and Mac version) and cordova (Android, ios version).
+3) It is a client-end APP built by Grunt (Windows and Mac version) and Cordova (Android, iOS version).
 
 ###Making Windows and Mac  applications.
 
@@ -12,24 +12,13 @@ In the command line:
 
 0) git clone https://github.com/LabShare/ls-seed.git. 
 
-// Please make sure you have read and write permission of the folder where you clone and stored the ls-seed project!
+// Please make sure you have read and write permission of the folder where you clone and store the ls-seed project!
 
-1) Switch to the folder where you stored ls-seed project, then do step 2.
+1) Switch to the folder where you stored the ls-seed project.
 
-2) cd ls_seed
+2) npm install
 
-3) npm install
-   
-4) cd ls_seed_source
-
-5) npm install
-
-6) cd..
-
-7) grunt build
-
-8) cd..
-//switch to the ls-seed root folder.
+3) grunt build
 
 ###Run the Windows and Mac APP
 You can find the app in ls-seed/ls_seed/release/ls_seed folder. There will be two folders one is for Windows another is for Mac.
@@ -38,10 +27,10 @@ You can find the app in ls-seed/ls_seed/release/ls_seed folder. There will be tw
 ###Making mobile applications
 
 ####Before you bake mobile application
-1) Apache Cordova make it possible for us using the same code(html, js and css) to build mobile applications.
-You just need to install different platform sdk.
+1) Apache Cordova makes it possible for us to use the same code (html, js and css) to build mobile applications.
+You just need to install different platform SDKs.
 
-2) More API document can be found at this url:
+2) More API documentation can be found at this url:
 http://cordova.apache.org/docs/en/3.5.0//guide_cli_index.md.html#The%20Command-Line%20Interface
 
 
@@ -56,26 +45,26 @@ Create cordova folder inside the mobile
 
 3) cd cordova
 
-//go to this new folder
+// go to this new folder
 
 4) npm install -g cordova
 
-//Install cordova at the folder 'cordova'
+// Install cordova at the folder 'cordova'
 
-//if you don't have the permission please use 'sudo to grant the permission'
+// if you don't have the permission please use 'sudo' to grant permission
 
 5) cordova create lsseed com.example.lsseed LsSeed 
 
-//Create the a framework App named lsseed with default settings.
+// Create the framework App named lsseed with default settings.
 
 #### Replace the source code in 'www' folder
 6) cd lsseed/www
 
-//Switch to 'www' folder
+// Switch to 'www' folder
 
 7) rm -r index.html js css img
 
-//Delete the index.html, js, img and css folders inside 'www'.folder.
+// Delete the index.html, js, img and css folders inside 'www'.folder.
 
 8) copy our lsseed source files in folder 'ls_seed/ls_seed_source/*' into 'cordova/lsseed/www' folder
 
@@ -106,7 +95,7 @@ Install Xcode and upgrade to newest version.
 
 #### Builds iOS and Android apps
 1) cd..
-//Move to 'ls-seed/cordova/lsseed' folder
+// Move to 'ls-seed/cordova/lsseed' folder
 
 2) cordova platform add android
 
@@ -120,9 +109,9 @@ Install Xcode and upgrade to newest version.
 
 #### Deploy to Android Emulator and iOS Simulator
 1)cordova emulate android
-//For android
+// For android
 
 When you cange your code in the future, you can just type: 'cordova android run' or 'cordova ios run' in order to bake the APP.
 
 2)Click Run on the Simulator.
-//For iOS
+// For iOS

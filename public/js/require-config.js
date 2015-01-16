@@ -7,7 +7,7 @@
 * requirejs.config
 */
 requirejs.config({
-   baseUrl :'',
+   baseUrl: '',
     paths: {
     'angular':                  'public/js/vendor/angular/angular',
     'angular-route':            'public/js/vendor/angular/angular-route',
@@ -26,7 +26,7 @@ requirejs.config({
         deps:['jquery']
     },
     "jquery.alpha":         ["jquery"],
-    "jquery.beta":          ["jquery"],
+    "jquery.beta":          ["jquery"]
   }
 });
 

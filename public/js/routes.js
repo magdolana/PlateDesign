@@ -13,31 +13,31 @@ define(['./app','./config'], function (app) {
             {
                 url:'/',
                 controller:  'welcomeCtrl',
-                templateUrl: 'views/welcome.html'
+                templateUrl: 'public/views/welcome.html'
             })
         .state('hello1',
             {
                 url:'/hello1',
                 controller:  'HelloController1',
-                templateUrl: 'views/hello1.html'
+                templateUrl: 'public/views/hello1.html'
             })
         .state('hello2',
             {
                 url:'/hello2',
                 controller:  'HelloController2',
-                templateUrl: 'views/hello2.html'
+                templateUrl: 'public/views/hello2.html'
             })
         .state('hello3',
             {
                 url:'/hello3',
                 controller:  'HelloController3',
-                templateUrl: 'views/hello3.html'
+                templateUrl: 'public/views/hello3.html'
             })
         .state('about',
             {
                 url:'/about',
                 controller:  'updaterCtrl',
-                templateUrl: 'views/about.html'
+                templateUrl: 'public/views/about.html'
             })
             ;
   });

@@ -8,7 +8,7 @@ define([
   './app',
   '../js/services/helloworldService', //include service here.
   './routes',
-  './settings',
+  './settings'
 ], function (require, angular) {
     'use strict';
     /*  place operations that need to initialize prior to app start here
