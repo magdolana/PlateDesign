@@ -1,8 +1,8 @@
 ﻿/*
  * This handles retrieving data and is used by controllers. 
- * you can use controller to call relative service when needed.
+ * You can use controller to call relative service when needed.
  */
-define(['../app'],function(app){
+define(['./module'], function (app) {
     'use strict';
     app.service('helloworldService', function () {
         //write your service here.

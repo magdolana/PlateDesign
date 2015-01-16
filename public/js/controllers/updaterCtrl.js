@@ -1,8 +1,8 @@
 /*
  * core control module for update.
- * It may cause errors when you try to put process into tne console.
+ * It may cause errors when you try to put process into the console.
  */
-define(['../module'], function (app) {
+define(['./module'], function (app) {
     'use strict';
     app.controller('updaterCtrl', function ($scope, $window) {
         $scope.localVersion=$window.settings.appVersion;

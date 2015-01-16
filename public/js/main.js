@@ -6,7 +6,6 @@ define([
   'require',
   'angular',
   './app',
-  '../js/services/helloworldService', //include service here.
   './routes',
   './settings'
 ], function (require, angular) {

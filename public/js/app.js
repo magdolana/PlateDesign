@@ -4,13 +4,16 @@
  */
 define([
       'angular',
+      'angular-ui-router',
       './config',
-      './controllerList'
+      './controllers/index',
+      './services/index'
     ], function (ng) {
       'use strict';
       return ng.module('lsseedApp', [
+          'app.controllers',
+          'app.services',
           'app.constants',
-          'app.home',
           'ui.router'
       ]);
 });
