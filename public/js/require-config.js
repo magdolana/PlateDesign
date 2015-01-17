@@ -12,8 +12,8 @@ requirejs.config({
     'angular':                  'public/js/vendor/angular/angular',
     'angular-route':            'public/js/vendor/angular/angular-route',
     'angular-ui-router':        'public/js/vendor/angular/angular-ui-router',
-    'jquery':                   'public/js/UI/jquery.min',
-    'bootstrap':                'public/js/UI/bootstrap',
+    'jquery':                   'public/js/vendor/jquery.min',
+    'bootstrap':                'public/js/vendor/bootstrap',
     'domReady':                 'public/js/vendor/requirejs/require-domReady'
   },
   shim: {
