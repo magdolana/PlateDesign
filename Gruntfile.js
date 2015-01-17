@@ -44,13 +44,26 @@ module.exports = function (grunt) {
             build: [
                 "./release"
             ]
+        },
+        bowerRequirejs: {
+            main: {
+                rjsConfig: 'public/js/require-config.js',
+                options: {
+                    'exclude-dev': true
+                }
+            }
         }
     });
     grunt.loadNpmTasks('grunt-node-webkit-builder');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-execute');
-    
+    grunt.loadNpmTasks('grunt-bower-requirejs');
+
+    // Automatically generates the file paths for the requirejs config file.
+    // In the .bowerrc file, this task is set to run after installing new bower components.
+    grunt.registerTask('updatePaths', ['bowerRequirejs:main']);
+
     // Used by CD
     grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
     
