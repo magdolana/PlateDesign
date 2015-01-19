@@ -4,7 +4,7 @@ module.exports = function (grunt) {
         nodewebkit: {
             options: {
                     version: '0.10.1',
-                    platforms: ['win', 'osx'],
+                    platforms: ['win', 'osx', 'linux32', 'linux64'],
                     buildDir: './release',               // Where the build version of my node-webkit app is saved
                     downloadUrl: 'http://dl.nwjs.io/'    // Temporary fix: NodeWebkit binaries are located at a new address
             },
@@ -17,6 +17,16 @@ module.exports = function (grunt) {
         copy: {
             toApp: {
                 files: [
+                    {
+                        cwd: './',
+                        src: ['VERSION'],
+                        dest: './release/ls_seed/linux64/VERSION'
+                    },
+                    {
+                        cwd: './',
+                        src: ['VERSION'],
+                        dest: './release/ls_seed/linux32/VERSION'
+                    },
                     {
                         cwd: './',
                         src: ['VERSION'],
