@@ -56,6 +56,12 @@ requirejs.config({
     'angular-ui-router': [
       'angular'
     ],
+    'angular-mocks': {
+      deps: [
+        'angular'
+      ],
+      exports: 'angular.mock'
+    },
     bootstrap: {
       deps: [
         'jquery'

@@ -5,7 +5,7 @@ module.exports = function (config) {
     basePath: '../',
     frameworks: ['jasmine', 'requirejs'],
     files: [
-      {pattern: 'ls_seed_source/public/js/**/*.js', included: false},
+      {pattern: 'public/js/**/*.js', included: false},
       {pattern: 'test/unit/**/*.js', included: false},
       'test/main-test.js'
     ],
@@ -13,7 +13,7 @@ module.exports = function (config) {
     coverageReporter: {
       dir: 'test/coverage'
     },
-    preprocessors: {
+    preprocessors: {  // files checked for code coverage with karma-coverage
       'public/js/controllers/*.js': ['coverage'],
       'public/js/services/*.js': ['coverage']
     },
