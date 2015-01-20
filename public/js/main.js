@@ -13,7 +13,7 @@ define([
     /*  place operations that need to initialize prior to app start here
      *  using the `run` function on the top-level module
      */
-    require(['domReady!'], function (document) {
+    require(['requirejs-domready!'], function (document) {
       /* everything is loaded...ready to go! */
       angular.bootstrap(document, ['lsseedApp']);
     });

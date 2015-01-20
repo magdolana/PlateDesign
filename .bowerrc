@@ -1,0 +1,6 @@
+{
+  "directory" : "public/js/bower_components",
+  "scripts": {
+    "postinstall": "grunt updatePaths"
+  }
+}

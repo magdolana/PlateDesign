@@ -18,7 +18,9 @@ In the command line:
 
 2) npm install
 
-3) grunt build
+3) bower install
+
+4) grunt build
 
 ###Run the Windows and Mac APP
 You can find the app in ls-seed/ls_seed/release/ls_seed folder. There will be two folders one is for Windows another is for Mac.
