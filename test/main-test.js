@@ -10,26 +10,25 @@ Object.keys(window.__karma__.files).forEach(function (file) {
   }
 });
 
-// The paths are automatically generated with the grunt-bower-requirejs task
+// The paths for third party libraries automatically generated with the grunt-bower-requirejs task ('grunt updatePaths')
 requirejs.config({
   baseUrl: '/base/public/js',
   paths: {
     angular: 'bower_components/angular/angular',
-    'angular-route': 'bower_components/angular-route/angular-route',
-    'angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
-    jquery: 'bower_components/jquery/dist/jquery',
-    bootstrap: 'bower_components/bootstrap/dist/js/bootstrap',
-    domReady: 'public/js/vendor/requirejs/require-domReady',
     'angular-animate': 'bower_components/angular-animate/angular-animate',
     'angular-cookies': 'bower_components/angular-cookies/angular-cookies',
     'angular-hotkeys': 'bower_components/angular-hotkeys/angular-hotkeys.min',
     'angular-mocks': 'bower_components/angular-mocks/angular-mocks',
     'angular-resource': 'bower_components/angular-resource/angular-resource',
+    'angular-route': 'bower_components/angular-route/angular-route',
     'angular-sanitize': 'bower_components/angular-sanitize/angular-sanitize',
     'angular-scenario': 'bower_components/angular-scenario/angular-scenario',
     'angular-touch': 'bower_components/angular-touch/angular-touch',
+    'angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router',
     boiler: 'bower_components/boiler/boiler',
+    bootstrap: 'bower_components/bootstrap/dist/js/bootstrap',
     'jasmine-matchers': 'bower_components/jasmine-matchers/src/matchers',
+    jquery: 'bower_components/jquery/dist/jquery',
     ngInfiniteScroll: 'bower_components/ngInfiniteScroll/build/ng-infinite-scroll',
     requirejs: 'bower_components/requirejs/require',
     'requirejs-domready': 'bower_components/requirejs-domready/domReady',
