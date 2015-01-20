@@ -9,10 +9,17 @@ module.exports = function (config) {
       {pattern: 'test/unit/**/*.js', included: false},
       'test/main-test.js'
     ],
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+    coverageReporter: {
+      dir: 'test/coverage'
+    },
+    preprocessors: {
+      'public/js/controllers/*.js': ['coverage'],
+      'public/js/services/*.js': ['coverage']
+    },
     exclude: [],
     port: 8080,
-// Currently installed browser options: PhantomJS, Chrome, NodeWebkit
+    // Currently installed browser options: PhantomJS, Chrome, NodeWebkit
     browsers: ['Chrome'],
     plugins: [
       'karma-jasmine',
@@ -24,7 +31,7 @@ module.exports = function (config) {
     ],
     singleRun: false,
     colors: true,
-// possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
+    // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
     logLevel: config.LOG_INFO
   });
 };
