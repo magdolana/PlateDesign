@@ -1,6 +1,11 @@
 module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
+        karma: {
+            unit: {
+                configFile: 'test/karma.conf.js'
+            }
+        },
         nodewebkit: {
             options: {
                     version: '0.10.1',
@@ -51,6 +56,12 @@ module.exports = function (grunt) {
                 options: {
                     'exclude-dev': true
                 }
+            },
+            test: {
+                rjsConfig: 'test/main-test.js',
+                options: {
+                    baseUrl: './public/js'
+                }
             }
         }
     });
@@ -58,13 +69,16 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-execute');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-bower-requirejs');
 
-    // Automatically generates the file paths for the requirejs config file.
+    // Automatically generates the file paths for both requirejs config files.
     // In the .bowerrc file, this task is set to run after installing new bower components.
-    grunt.registerTask('updatePaths', ['bowerRequirejs:main']);
+    grunt.registerTask('updatePaths', ['bowerRequirejs:main', 'bowerRequirejs:test']);
 
     // Used by CD
     grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
-    
+
+    // Unit testing
+    grunt.registerTask('test', ['karma:unit']);
 };

@@ -7,6 +7,10 @@
 
 ###Making Windows and Mac  applications.
 
+Note: NodeJS, grunt-cli, and Bower need to be installed globally first.
+
+After installing NodeJS from http://nodejs.org/, run 'npm install -g grunt-cli bower'.
+
 ###Build steps
 In the command line:
 
@@ -117,3 +121,11 @@ When you cange your code in the future, you can just type: 'cordova android run'
 
 2)Click Run on the Simulator.
 // For iOS
+
+###Testing Steps
+
+1. Make sure all dependencies are installed using npm install and bower install.
+2. grunt test
+    - The browser used for unit tests can be changed in test/karma.conf.js
+    - Code coverage reports are generated in test/coverage
+    - New unit test files need to end in '_Spec' in order to be found by karma
