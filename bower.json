@@ -8,7 +8,7 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "public/js/bower_components",
+    "ui/js/bower_components",
     "test"
   ],
   "dependencies": {
