@@ -20,7 +20,7 @@ module.exports = function (config) {
     exclude: [],
     port: 8080,
     // Currently installed browser options: PhantomJS, Chrome, NodeWebkit
-    browsers: ['NodeWebkit'],
+    browsers: ['Chrome'],
     plugins: [
       'karma-jasmine',
       'karma-nodewebkit-launcher',
