@@ -1,12 +1,13 @@
 var express = require('express');
 var app = express();
-var helloService = require('../lib/HelloWorld');
+var helloService = require('./helloworld');
 
 app.get('/', function(req,res){
     res.send('Home');
 })
 app.get('/HelloWorld', function(req,res) {
-    helloService.get(req,res);
+    var s = new helloService();
+    s.get(req, res);
 });
 
 var server = app.listen(8080, function() {
