@@ -5,7 +5,7 @@ module.exports = function (config) {
     basePath: '../',
     frameworks: ['jasmine', 'requirejs'],
     files: [
-      {pattern: 'public/js/**/*.js', included: false},
+      {pattern: 'ui/js/**/*.js', included: false},
       {pattern: 'test/unit/**/*.js', included: false},
       'test/main-test.js'
     ],
@@ -14,13 +14,13 @@ module.exports = function (config) {
       dir: 'test/coverage'
     },
     preprocessors: {  // files checked for code coverage with karma-coverage
-      'public/js/controllers/*.js': ['coverage'],
-      'public/js/services/*.js': ['coverage']
+      'ui/js/controllers/*.js': ['coverage'],
+      'ui/js/services/*.js': ['coverage']
     },
     exclude: [],
     port: 8080,
     // Currently installed browser options: PhantomJS, Chrome, NodeWebkit
-    browsers: ['Chrome'],
+    browsers: ['NodeWebkit'],
     plugins: [
       'karma-jasmine',
       'karma-nodewebkit-launcher',
