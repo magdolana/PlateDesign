@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         },
         nodewebkit: {
             options: {
-                    version: '0.10.1',
+                    version: '0.11.4',
                     platforms: ['win', 'osx', 'linux32', 'linux64'],
                     buildDir: './release',               // Where the build version of my node-webkit app is saved
                     downloadUrl: 'http://dl.nwjs.io/'    // Temporary fix: NodeWebkit binaries are located at a new address
