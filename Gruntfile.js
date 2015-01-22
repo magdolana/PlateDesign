@@ -16,7 +16,7 @@ module.exports = function (grunt) {
             src: [                                       // Your node-webkit app source files
                 './package.json',
                 './index.html',
-                './public/**/*'
+                './ui/**/*'
             ]
         },
         copy: {
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         },
         bowerRequirejs: {
             main: {
-                rjsConfig: 'public/js/require-config.js',
+                rjsConfig: 'ui/js/require-config.js',
                 options: {
                     'exclude-dev': true
                 }
