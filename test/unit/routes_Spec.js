@@ -17,11 +17,11 @@ define([
       $rootScope = _$rootScope_;
       $state = _$state_;
       $location = _$location_;
-      $templateCache.put('public/views/about.html', '');
-      $templateCache.put('public/views/hello1.html', '');
-      $templateCache.put('public/views/hello2.html', '');
-      $templateCache.put('public/views/hello3.html', '');
-      $templateCache.put('public/views/welcome.html', '');
+      $templateCache.put('ui/views/about.html', '');
+      $templateCache.put('ui/views/hello1.html', '');
+      $templateCache.put('ui/views/hello2.html', '');
+      $templateCache.put('ui/views/hello3.html', '');
+      $templateCache.put('ui/views/welcome.html', '');
     }));
 
     function goTo(url) {
