@@ -1,5 +1,5 @@
-var hello = function hello(callback) {
-    callback(null, "Hello World!");
+var hello = function hello(name, callback) {
+    callback(null, {message: "Hello " + name + "!"});
 };
 
 module.exports = hello;
