@@ -60,7 +60,7 @@ module.exports = function (grunt) {
             test: {
                 rjsConfig: 'test/main-test.js',
                 options: {
-                    baseUrl: './public/js'
+                    baseUrl: './ui/js'
                 }
             }
         }

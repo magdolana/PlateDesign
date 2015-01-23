@@ -12,7 +12,7 @@ Object.keys(window.__karma__.files).forEach(function (file) {
 
 // The paths for third party libraries automatically generated with the grunt-bower-requirejs task ('grunt updatePaths')
 requirejs.config({
-  baseUrl: '/base/public/js',
+  baseUrl: '/base/ui/js',
   paths: {
     angular: 'bower_components/angular/angular',
     'angular-animate': 'bower_components/angular-animate/angular-animate',
