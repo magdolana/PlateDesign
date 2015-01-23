@@ -4,26 +4,37 @@
  */
 define(['./module'], function (app) {
     'use strict';
-    app.service('helloworldService', function () {
+    app.service('helloworldService', function ($http, $q, $log) {
+        // $q helps run functions asynchronously, and use return values when done processing
+
         //write your service here.
-        this.helloSuhas = function () {
-            return "Suhas";
-        }; 
-        this.helloRobin = function () {
-            return "Robin";
+
+        this.hello = function(servicesUrl, name)  {
+            $log.debug('Services Url: ' + servicesUrl);
+            $log.debug('Name: ' + name);
+
+            //$http methods return promise which then can be used to register callbacks for success and error
+            var request = $http.post( servicesUrl + '/HelloWorld', { name: name } );
+
+            return( request.then( handleSuccess, handleError ) ); //TODO: handle case neither success nor failure returned
         };
-        this.helloKuan = function () {
-            return "Kuan";
+
+        function handleError( response ) {
+            $log.debug('handling error');
+
+            if(!angular.isObject(response.data) || !response.data.message) {
+                return($q.reject("An unknown error occurred"));
+            }
+
+            //Creates a promise that is resolved as rejected with specified reason
+            return ( $q.reject( response.data.message ) );
         };
-        this.helloJeyaraman = function () {
-            return "Jeyaraman";
+
+        function handleSuccess( response ) {
+            $log.debug('handling success');
+
+            return( response.data );
         };
-        this.helloRamesh = function () {
-            return "Ramesh";
-        };        
-        this.helloYebio = function () {
-            return "Yebio";
-        };      
     });
     }
 );
