@@ -35,7 +35,8 @@ requirejs.config({
         propertyParser: 'bower_components/requirejs-plugins/src/propertyParser',
         'Markdown.Converter': 'bower_components/requirejs-plugins/lib/Markdown.Converter',
         text: 'bower_components/requirejs-plugins/lib/text',
-        'requirejs-text': 'bower_components/requirejs-text/text'
+        'requirejs-text': 'bower_components/requirejs-text/text',
+        'kendo-ui-core': 'bower_components/kendo-ui-core/js/kendo.ui.core.min'
     },
     shim: {
         angular: {
@@ -57,7 +58,13 @@ requirejs.config({
         ],
         'jquery.beta': [
             'jquery'
-        ]
+        ],
+        'kendo-ui-core': {
+            deps: [
+                'jquery',
+                'angular'
+            ]
+        }
     },
     packages: [
 
