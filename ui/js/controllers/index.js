@@ -3,12 +3,11 @@
  * Please add your own controller here.
  */
 define([
-    './HelloController1',
-    './HelloController2',
-    './HelloController3',
-    './updaterCtrl',
-    './welcomeCtrl',
-        './navBarController'
-  ],
+        './HelloController1',
+        './HelloController2',
+        './HelloController3',
+        './updaterCtrl',
+        './welcomeCtrl'
+    ],
   function () {}
 );
