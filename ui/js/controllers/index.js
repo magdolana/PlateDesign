@@ -7,7 +7,8 @@ define([
         './HelloController2',
         './HelloController3',
         './updaterCtrl',
-        './welcomeCtrl'
+        './welcomeCtrl',
+        './navBarController'
     ],
   function () {}
 );
