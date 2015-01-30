@@ -5,6 +5,7 @@
 define([
       'angular',
       'angular-ui-router',
+      'angular-bootstrap',
       'kendo-ui-core',
       './config',
       './controllers/index',
@@ -16,6 +17,7 @@ define([
           'app.services',
           'app.constants',
           'ui.router',
+          'ui.bootstrap',
           'kendo.directives'
       ]);
 });

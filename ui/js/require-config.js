@@ -36,7 +36,8 @@ requirejs.config({
         'Markdown.Converter': 'bower_components/requirejs-plugins/lib/Markdown.Converter',
         text: 'bower_components/requirejs-plugins/lib/text',
         'requirejs-text': 'bower_components/requirejs-text/text',
-        'kendo-ui-core': 'bower_components/kendo-ui-core/js/kendo.ui.core.min'
+        'kendo-ui-core': 'bower_components/kendo-ui-core/js/kendo.ui.core.min',
+        'angular-bootstrap': 'bower_components/angular-bootstrap/ui-bootstrap-tpls'
     },
     shim: {
         angular: {
@@ -46,6 +47,9 @@ requirejs.config({
             'angular'
         ],
         'angular-ui-router': [
+            'angular'
+        ],
+        'angular-bootstrap': [
             'angular'
         ],
         bootstrap: {
