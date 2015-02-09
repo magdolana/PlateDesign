@@ -35,3 +35,7 @@ ui/js/bower_components
 # Release files
 release
 cache
+
+# sass cach files
+ui/stylesheets/sass/.sass-cache
+.sass-cache

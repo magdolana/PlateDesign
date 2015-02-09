@@ -18,9 +18,9 @@ app.post('/HelloWorld', function(req,res) {
 });
 
 
-var server = app.listen(8080, function() {
+var server = app.listen(9090, function() {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('ls-seed listening at http://%s:%s', host, port);
+    console.log('Ls-seed Backend listening at http://%s:%s', host, port);
 });

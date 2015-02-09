@@ -4,16 +4,78 @@
  */
 define([
       'angular',
-      'angular-ui-router',
+      'angular-route',
+      'angular-bootstrap',
+      'angular-animate',
+      'bootstrap-file-input',
+      'kendo-ui-core',
       './config',
-      './controllers/index',
-      './services/index'
+      'flot.time',
+      'flot.resize',
+      'flot.stack',
+      'flot.pie',
+      'angular.easy-pie-chart',
+      'jquery.slimscroll',
+      'jquery-spinner',
+      'jquery-steps',
+      'jquery.sparkline',
+      'gauge',
+      'morris',
+      'seiyria-bootstrap-slider',
+      'angular-wizard',
+      'textAngularSetup',
+      'textAngular',
+      'textAngular-sanitize',
+      'toastr',
+      'angular-loading-bar',
+      'underscore',
+
+      './UI/UICtrl',
+      './UI/UIDirective',
+      './UI/UIService',
+
+      './shared/directives',
+      './shared/localize',
+      './shared/main',
+
+      './Form/FormCtrl',
+      './Form/FormDirective',
+      './Form/FormValidation',
+
+      './Table/TableCtrl',
+
+      './Task/Task',
+
+
+      './Chart/ChartCtrl',
+      './Chart/ChartDirective'
+
     ], function (ng) {
       'use strict';
       return ng.module('lsseedApp', [
+          'ngRoute',
+          'ngAnimate',
+          'ngSanitize',
+          'ui.bootstrap',
+          'kendo.directives',
+          'easypiechart',
+          'mgo-angular-wizard',
+          'textAngular',
+          'textAngularSetup',
+          'angular-loading-bar',
+          'app.ui.ctrls',
+          'app.ui.directives',
+          'app.ui.services',
           'app.controllers',
-          'app.services',
-          'app.constants',
-          'ui.router'
+          'app.directives',
+          'app.form.validation',
+          'app.ui.form.ctrls',
+          'app.ui.form.directives',
+          'app.tables',
+          'app.task',
+          'app.localization',
+          'app.chart.ctrls',
+          'app.chart.directives',
+          'app.constants'
       ]);
 });
