@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.ui.form.ctrls', []).controller('DatepickerDemoCtrl', [
+  return angular.module('app.ui.form.ctrls', []).controller('DatepickerDemoCtrl', [
     '$scope', function($scope) {
       $scope.today = function() {
         return $scope.dt = new Date();
@@ -97,4 +97,3 @@ define(['angular'], function (angular) {
 
 });
 
-//# sourceMappingURL=FormCtrl.js.map

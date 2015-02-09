@@ -19,6 +19,33 @@ module.exports = function (grunt) {
                 './ui/**/*'
             ]
         },
+        compass: {
+            options: {
+                sassDir: "ui/stylesheets",
+                cssDir: "ui/stylesheets",
+                generatedImagesDir: "ui/stylesheets/ui/images/",
+                imagesDir: "ui/stylesheets/ui/images/",
+                javascriptsDir: "ui/js",
+                fontsDir: "ui/fonts",
+                importPath: "ui/js/bower_components",
+                httpImagesPath: "stylesheets/ui/images/",
+                httpGeneratedImagesPath: "stylesheets/ui/images/",
+                httpFontsPath: "fonts",
+                relativeAssets: true
+            },
+            dist: {
+                options: {
+                    outputStyle: 'compressed',
+                    debugInfo: false,
+                    noLineComments: true
+                }
+            },
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+        },
         copy: {
             toApp: {
                 files: [
@@ -50,6 +77,14 @@ module.exports = function (grunt) {
                 "./release"
             ]
         },
+        express: {
+            dev: {
+                options: {
+                    script: './service/services/index.js',
+                    background: false
+                }
+            }
+        },
         bowerRequirejs: {
             main: {
                 rjsConfig: 'ui/js/require-config.js',
@@ -67,8 +102,12 @@ module.exports = function (grunt) {
     });
     grunt.loadNpmTasks('grunt-node-webkit-builder');
     grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-execute');
+    grunt.loadNpmTasks('grunt-express-server');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-bower-requirejs');
 
@@ -77,8 +116,12 @@ module.exports = function (grunt) {
     grunt.registerTask('updatePaths', ['bowerRequirejs:main', 'bowerRequirejs:test']);
 
     // Used by CD
-    grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
+    grunt.registerTask('build', ['compass:dist','clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
 
     // Unit testing
     grunt.registerTask('test', ['karma:unit']);
+
+    //Backend server
+    grunt.registerTask('backendServer', ['express:dev']);
+
 };

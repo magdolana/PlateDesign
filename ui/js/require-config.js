@@ -43,6 +43,10 @@ requirejs.config({
         'bootstrap-file-input': 'bower_components/bootstrap-file-input/bootstrap.file-input',
         'bootstrap-sass-official': 'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
         flot: 'bower_components/flot/jquery.flot',
+        'flot.time': 'bower_components/flot/jquery.flot.time',
+        'flot.pie': 'bower_components/flot/jquery.flot.pie',
+        'flot.resize': 'bower_components/flot/jquery.flot.resize',
+        'flot.stack': 'bower_components/flot/jquery.flot.stack',
         'flot.tooltip': 'bower_components/flot.tooltip/js/jquery.flot.tooltip',
         'font-awesome': 'bower_components/font-awesome/fonts/*',
         gauge: 'bower_components/gauge.js/dist/gauge.min',
@@ -51,7 +55,9 @@ requirejs.config({
         'jquery-steps': 'bower_components/jquery-steps/build/jquery.steps',
         'jquery.easing': 'bower_components/jquery.easing/js/jquery.easing',
         'jquery.easy-pie-chart': 'bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart',
+        'angular.easy-pie-chart': 'bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.min',
         'jquery.slimscroll': 'bower_components/jquery.slimscroll/jquery.slimscroll.min',
+        'jquery.sparkline': 'vendors/jquery.sparkline.min',
         morris: 'bower_components/morris.js/morris',
         'seiyria-bootstrap-slider': 'bower_components/seiyria-bootstrap-slider/js/bootstrap-slider',
         textAngular: 'bower_components/textAngular/src/textAngular',
@@ -74,6 +80,51 @@ requirejs.config({
         'angular-bootstrap': [
             'angular'
         ],
+        'angular-animate': [
+            'angular'
+        ],
+        'angular-wizard': [
+            'angular'
+        ],
+        'angular-loading-bar': [
+            'angular'
+        ],
+        'angular-sanitize': [
+            'angular'
+        ],
+        flot: {
+            deps: [
+                'jquery'
+            ],
+            exports: '$.plot'
+        },
+        'flot.time': [
+            'flot'
+        ],
+        'flot.resize': [
+            'flot'
+        ],
+        'flot.pie': [
+            'flot'
+        ],
+        'flot.stack': [
+            'flot'
+        ],
+        morris: {
+            deps: [
+                'jquery'
+            ],
+            exports: 'Morris'
+        },
+        textAngular: [
+            'angular'
+        ],
+        textAngularSetup: [
+            'angular'
+        ],
+        'textAngular-sanitize': [
+            'angular'
+        ],
         bootstrap: {
             deps: [
                 'jquery'
@@ -85,11 +136,26 @@ requirejs.config({
         'jquery.beta': [
             'jquery'
         ],
+        'jquery.easy-pie-chart': [
+            'jquery'
+        ],
+        'jquery.sparkline': [
+            'jquery'
+        ],
+        'jquery.slimscroll': [
+            'jquery'
+        ],
+        'jquery-spinner': [
+            'jquery'
+        ],
         'kendo-ui-core': {
             deps: [
                 'jquery',
                 'angular'
             ]
+        },
+        underscore: {
+            exports: '_'
         }
     },
     packages: [

@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.ui.directives', []).directive('uiTime', [
+  return angular.module('app.ui.directives', []).directive('uiTime', [
     function() {
       return {
         restrict: 'A',
@@ -48,5 +48,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=UIDirective.js.map

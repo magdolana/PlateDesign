@@ -1,6 +1,6 @@
-define(['angular'], function (angular) {
+define(['angular', 'jquery', 'morris', '../bower_components/raphael/raphael','flot'], function (angular, $, Morris, Raphael) {
   'use strict';
-  angular.module('app.chart.directives', []).directive('gaugeChart', [
+  return angular.module('app.chart.directives', []).directive('gaugeChart', [
     function() {
       return {
         restrict: 'A',
@@ -215,5 +215,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=ChartDirective.js.map

@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.chart.ctrls', []).controller('chartCtrl', [
+  return angular.module('app.chart.ctrls', []).controller('chartCtrl', [
     '$scope', function($scope) {
       $scope.easypiechart = {
         percent: 65,
@@ -532,5 +532,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=ChartCtrl.js.map

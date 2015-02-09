@@ -1,6 +1,6 @@
-define(['angular'], function (angular) {
+define(['angular', 'toastr'], function (angular, toastr) {
   'use strict';
-  angular.module('app.ui.services', []).factory('logger', [
+  return angular.module('app.ui.services', []).factory('logger', [
     function() {
       var logIt;
       toastr.options = {
@@ -29,5 +29,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=UIService.js.map

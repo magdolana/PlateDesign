@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.task', []).factory('taskStorage', function() {
+  return angular.module('app.task', []).factory('taskStorage', function() {
     var DEMO_TASKS, STORAGE_ID;
     STORAGE_ID = 'tasks';
     DEMO_TASKS = '[ {"title": "Finish homework", "completed": true}, {"title": "Make a call", "completed": true}, {"title": "Play games with friends", "completed": false}, {"title": "Shopping", "completed": false}, {"title": "One more dance", "completed": false}, {"title": "Try Google glass", "completed": false} ]';
@@ -129,5 +129,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=Task.js.map

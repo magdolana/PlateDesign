@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.tables', []).controller('tableCtrl', [
+  return angular.module('app.tables', []).controller('tableCtrl', [
     '$scope', '$filter', function($scope, $filter) {
       var init;
       $scope.stores = [
@@ -178,5 +178,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=TableCtrl.js.map

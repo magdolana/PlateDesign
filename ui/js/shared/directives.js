@@ -1,5 +1,5 @@
-define(['angular'], function (angular) {
-  angular.module('app.directives', []).directive('imgHolder', [
+define(['angular', 'jquery'], function (angular, $) {
+  return angular.module('app.directives', []).directive('imgHolder', [
     function() {
       return {
         restrict: 'A',
@@ -56,12 +56,12 @@ define(['angular'], function (angular) {
             hrefUrl = void 0;
             style = $this.data('style');
             if (style === 'loulou') {
-              hrefUrl = 'styles/main.css';
-              $('link[href^="styles/main"]').attr('href', hrefUrl);
+              hrefUrl = 'ui/stylesheets/main.css';
+              $('link[href^="ui/stylesheets/main"]').attr('href', hrefUrl);
             } else if (style) {
               style = '-' + style;
-              hrefUrl = 'styles/main' + style + '.css';
-              $('link[href^="styles/main"]').attr('href', hrefUrl);
+              hrefUrl = 'ui/stylesheets/main' + style + '.css';
+              $('link[href^="ui/stylessheets/main"]').attr('href', hrefUrl);
             } else {
               return false;
             }
@@ -210,5 +210,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=directives.js.map

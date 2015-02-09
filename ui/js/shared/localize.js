@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.localization', []).factory('localize', [
+  return angular.module('app.localization', []).factory('localize', [
     '$http', '$rootScope', '$window', function($http, $rootScope, $window) {
       var localize;
       localize = {
@@ -124,5 +124,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=localize.js.map

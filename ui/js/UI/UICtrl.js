@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.ui.ctrls', []).controller('LoaderCtrl', [
+  return angular.module('app.ui.ctrls', []).controller('LoaderCtrl', [
     '$scope', 'cfpLoadingBar', function($scope, cfpLoadingBar) {
       $scope.start = function() {
         return cfpLoadingBar.start();
@@ -186,5 +186,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=UICtrl.js.map

@@ -1,5 +1,5 @@
 define(['angular'], function (angular) {
-  angular.module('app.ui.form.directives', []).directive('uiRangeSlider', [
+  return angular.module('app.ui.form.directives', []).directive('uiRangeSlider', [
     function() {
       return {
         restrict: 'A',
@@ -42,5 +42,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=FormDirective.js.map

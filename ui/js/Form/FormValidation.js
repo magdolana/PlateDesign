@@ -1,6 +1,6 @@
 define(['angular'], function (angular) {
   'use strict';
-  angular.module('app.form.validation', []).controller('wizardFormCtrl', [
+  return angular.module('app.form.validation', []).controller('wizardFormCtrl', [
     '$scope', function($scope) {
       $scope.wizard = {
         firstName: 'some name',
@@ -130,5 +130,3 @@ define(['angular'], function (angular) {
   ]);
 
 });
-
-//# sourceMappingURL=FormValidation.js.map
