@@ -116,7 +116,7 @@ module.exports = function (grunt) {
     grunt.registerTask('updatePaths', ['bowerRequirejs:main', 'bowerRequirejs:test']);
 
     // Used by CD
-    grunt.registerTask('build', ['compass:dist','clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
+    grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
 
     // Unit testing
     grunt.registerTask('test', ['karma:unit']);
