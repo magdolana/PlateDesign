@@ -48,7 +48,9 @@ define([
 
 
       './Chart/ChartCtrl',
-      './Chart/ChartDirective'
+      './Chart/ChartDirective',
+
+      './HelloWorld/HelloWorldCtrl'
 
     ], function (ng) {
       'use strict';
@@ -76,6 +78,7 @@ define([
           'app.localization',
           'app.chart.ctrls',
           'app.chart.directives',
+          'app.helloworld.ctrls',
           'app.constants'
       ]);
 });

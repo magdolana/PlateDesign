@@ -73,6 +73,8 @@ define(['./app'], function (app) {
                 templateUrl: 'ui/views/pages/invoice.html'
             }).when('/tasks', {
                 templateUrl: 'ui/views/tasks/tasks.html'
+            }).when('/hello', {
+                templateUrl: 'ui/views/helloworld/helloworld.html'
             }).otherwise({
                 redirectTo: '/404'
             });
