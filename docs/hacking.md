@@ -44,7 +44,7 @@ define([
 });
 ```
 
-#####Update ui/views/nav.html to include menu option for new view by adding new <li>
+#####Update ui/views/nav.html to include menu option for new view by adding new li
 
 ```html
 <div id="nav-wrapper">
@@ -85,4 +85,4 @@ define(['./app'], function (app) {
 ```
 #####End result
 
-![alt text](docs/images/LsSeedTemplateExample.png "Ls Seed Example Screenshot")
+![alt text](images/LsSeedTemplateExample.png "Ls Seed Example Screenshot")
