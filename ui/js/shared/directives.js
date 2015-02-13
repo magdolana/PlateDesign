@@ -1,4 +1,4 @@
-define(['angular', 'jquery'], function (angular, $) {
+define(['angular', 'jquery', 'jquery.slimscroll'], function (angular, $) {
   return angular.module('app.directives', []).directive('imgHolder', [
     function() {
       return {
