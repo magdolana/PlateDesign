@@ -1,4 +1,4 @@
-define(['angular'], function (angular) {
+define(['angular', 'jquery', 'jquery-steps', 'bootstrap-file-input'], function (angular) {
   return angular.module('app.ui.form.directives', []).directive('uiRangeSlider', [
     function() {
       return {
