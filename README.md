@@ -7,3 +7,5 @@ This project is an application skeleton to build Apps for Windows, Mac, Android 
 ###[Hacking](docs/hacking.md)
 
 ###[Building](docs/building.md)
+
+###[API References](docs/references.md)
