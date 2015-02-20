@@ -54,29 +54,29 @@ module.exports = function (grunt) {
                     {
                         cwd: './',
                         src: ['VERSION'],
-                        dest: './release/ls_seed/linux64/VERSION'
+                        dest: './release/<%= pkg.name %>/linux64/VERSION'
                     },
                     {
                         cwd: './',
                         src: ['VERSION'],
-                        dest: './release/ls_seed/linux32/VERSION'
+                        dest: './release/<%= pkg.name %>/linux32/VERSION'
                     },
                     {
                         cwd: './',
                         src: ['VERSION'],
-                        dest: './release/ls_seed/win/VERSION'
+                        dest: './release/<%= pkg.name %>/win/VERSION'
                     },
                     {
                         cwd: './',
                         src: ['VERSION'],
-                        dest: './release/ls_seed/osx/ls_seed.app/Contents/Resources/VERSION'
+                        dest: './release/<%= pkg.name %>/osx/<%= pkg.name %>.app/Contents/Resources/VERSION'
                     }
                 ]
             },
             mobile: {
                 cwd: './',
                 src: ['index.html', 'ui/**/*'],
-                dest: './mobile/<%= pkg.mobileProjectName %>/www/'
+                dest: './mobile/<%= pkg.name %>/www/'
             }
         },
         clean: {
@@ -84,7 +84,7 @@ module.exports = function (grunt) {
                 "./release"
             ],
             mobile: [
-                "./mobile/<%= pkg.mobileProjectName %>/www/*"
+                "./mobile/<%= pkg.name %>/www/*"
             ]
         },
         express: {
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
                 command: ['mkdir mobile',
                     'cd mobile',
                     'pwd',
-                    'cordova create <%= pkg.mobileProjectName %> <%= pkg.mobilePackageName %> <%= pkg.mobileProjectName %>'
+                    'cordova create <%= pkg.name %> <%= pkg.mobilePackageName %> <%= pkg.name %>'
                 ].join('&&')
             },
             add_android: {
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
                 options: {
                     stderr: false,
                     execOptions: {
-                        cwd: 'mobile/<%= pkg.mobileProjectName %>'
+                        cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
             },
@@ -135,7 +135,7 @@ module.exports = function (grunt) {
                 options: {
                     stderr: false,
                     execOptions: {
-                        cwd: 'mobile/<%= pkg.mobileProjectName %>'
+                        cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
             },
@@ -146,7 +146,7 @@ module.exports = function (grunt) {
                 options: {
                     stderr: false,
                     execOptions: {
-                        cwd: 'mobile/<%= pkg.mobileProjectName %>'
+                        cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
             },
@@ -155,7 +155,7 @@ module.exports = function (grunt) {
                 options: {
                     stderr: false,
                     execOptions: {
-                        cwd: 'mobile/<%= pkg.mobileProjectName %>'
+                        cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
             },
@@ -164,7 +164,7 @@ module.exports = function (grunt) {
                 options: {
                     stderr: false,
                     execOptions: {
-                        cwd: 'mobile/<%= pkg.mobileProjectName %>'
+                        cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
             },
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
                 options: {
                     stderr: false,
                     execOptions: {
-                        cwd: 'mobile/<%= pkg.mobileProjectName %>'
+                        cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
             }
