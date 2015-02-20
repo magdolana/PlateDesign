@@ -203,7 +203,7 @@ module.exports = function (grunt) {
     grunt.registerTask('test', ['karma:unit']);
 
     //Backend server
-    grunt.registerTask('backendServer', ['express:dev']);
+    grunt.registerTask('expressServer', ['express:dev']);
 
     //builds mobile application in the 'mobile' folder
     grunt.registerTask('setupMobile', ['shell:setup_mobile', 'shell:add_plugins', 'clean:mobile','copy:mobile']);

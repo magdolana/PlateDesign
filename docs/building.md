@@ -30,63 +30,16 @@ In the package.json file, you will see two properties that you can configure for
 1. Build native applications by running command `grunt build`
 2. This will generate an application for each platform in the release folder
 3. The release path is '/release/<project name>/' where you'll find a folder for each platform
-4. For OSX, Linux, and Windows, you'll find an executable that can be run. For mac, run the node-webkit exe on the nw.pak file
+4. For OSX, Linux, and Windows, you'll find an executable that can be run.
++ For mac, cd into `/release/<project_name>/osx/<project_name>.app/Contents/Resources`, then use command `../MacOS/node-webkit app.nw`
 
+### Run Web application
+1. The web application can be tested by using the command `npm start` which will run a static server on port 8080
+2. Go to preferred browser and enter url 'http://localhost:8080'.
+3. When continuing to make changes and test in browser, be sure open up the developer console for that browser and change the settings so that caching is disabled when the console is open
 
-###Making mobile applications
+### Run Node Express server
+1. `grunt expressServer` - listens on port 9090 by default
 
-####Before you bake mobile application
-1) Apache Cordova makes it possible for us to use the same code (html, js and css) to build mobile applications.
-You just need to install different platform SDKs.
-
-2) More API documentation can be found at this url:
-http://cordova.apache.org/docs/en/3.5.0//guide_cli_index.md.html#The%20Command-Line%20Interface
-
-
-#### install android and iOS sdk
-After you finished the step 8 above. Please install android and ios sdk.
-
-For Android
-
-1) Download and install the android SDK. After downloading, make sure that you have "tools and platform-tools" in path
-
-2) Download and install JAVA and ANT into your machine. After that, make sure you have 'JAVA_HOME\bin' and 'ANT_HOME' 
-
-3) run android and install v19 (or newest version) API and SDK tools
-
-4) more details please check out document for Android:
-http://cordova.apache.org/docs/en/3.5.0//guide_platforms_android_index.md.html#Android%20Platform%20Guide
-
-For IOS
-Install Xcode and upgrade to newest version.
-
-#### Builds iOS and Android apps
-1) cd..
-// Move to 'ls-seed/cordova/lsseed' folder
-
-2) cordova platform add android
-
-3) cordova platform add ios
-
-4) cordova plugin add org.apache.cordova.console
-
-5) cordova plugin and org.apache.cordova.inappbrowser
-
-6) cordova build
-
-#### Deploy to Android Emulator and iOS Simulator
-1)cordova emulate android
-// For android
-
-When you cange your code in the future, you can just type: 'cordova android run' or 'cordova ios run' in order to bake the APP.
-
-2)Click Run on the Simulator.
-// For iOS
-
-###Testing Steps
-
-1. Make sure all dependencies are installed using npm install and bower install.
-2. grunt test
-    - The browser used for unit tests can be changed in test/karma.conf.js
-    - Code coverage reports are generated in test/coverage
-    - New unit test files need to end in '_Spec' in order to be found by karma
+###Building Mobile applications
+Go to: [Mobile](mobile.md)
