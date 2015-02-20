@@ -39,3 +39,6 @@ cache
 # sass cach files
 ui/stylesheets/sass/.sass-cache
 .sass-cache
+
+#mobile app files
+mobile

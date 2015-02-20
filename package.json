@@ -1,5 +1,6 @@
 {
-  "name": "ls_seed",
+  "name": "LsSeed",
+  "mobilePackageName": "com.labshare.lsseed",
   "version": "0.0.3",
   "description": "This app is a demo for the AngularJS_RequireJS_Seed",
   "main": "./index.html",
@@ -16,6 +17,7 @@
     "grunt-express-server": "^0.4.19",
     "grunt-karma": "^0.9.0",
     "grunt-node-webkit-builder": "0.3.1",
+    "grunt-shell": "^1.1.1",
     "http-server": "^0.7.4",
     "jasmine-core": "^2.1.3",
     "karma": "^0.12.31",
