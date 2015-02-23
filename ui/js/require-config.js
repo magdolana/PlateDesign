@@ -66,7 +66,8 @@ requirejs.config({
         textAngularSetup: 'bower_components/textAngular/src/textAngularSetup',
         toastr: 'bower_components/toastr/toastr',
         underscore: 'bower_components/underscore/underscore',
-        'jquery.bootstrap': 'jquery.bootstrap'
+        'jquery.bootstrap': 'jquery.bootstrap',
+        xtk: 'vendors/xtk.js'
     },
     shim: {
         angular: {
@@ -173,6 +174,9 @@ requirejs.config({
         underscore: {
             exports: '_'
         }
+    },
+    xtk: {
+        exports: 'xtk'
     },
     packages: [
 
