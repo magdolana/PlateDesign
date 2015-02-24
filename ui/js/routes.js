@@ -75,6 +75,8 @@ define(['./app'], function (app) {
                 templateUrl: 'ui/views/tasks/tasks.html'
             }).when('/hello', {
                 templateUrl: 'ui/views/helloworld/helloworld.html'
+            }).when('/xtk', {
+                templateUrl: 'ui/views/xtk/xtk.html'
             }).otherwise({
                 redirectTo: '/404'
             });
