@@ -42,3 +42,7 @@ ui/stylesheets/sass/.sass-cache
 
 #mobile app files
 mobile
+
+#lsModels file
+
+ui/js/lsModels.js

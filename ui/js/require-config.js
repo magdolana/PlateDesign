@@ -67,7 +67,8 @@ requirejs.config({
         toastr: 'bower_components/toastr/toastr',
         underscore: 'bower_components/underscore/underscore',
         'jquery.bootstrap': 'jquery.bootstrap',
-        xtk: 'vendors/xtk.js'
+        xtk: 'vendors/xtk.js',
+        models: require(['./lsModels'])
     },
     shim: {
         angular: {
