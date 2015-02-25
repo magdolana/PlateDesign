@@ -176,8 +176,10 @@ module.exports = function (grunt) {
                         cwd: 'mobile/<%= pkg.name %>'
                     }
                 }
+            },
+            add_models: {
+                command: 'gulp js'
             }
-
         }
     });
     grunt.loadNpmTasks('grunt-node-webkit-builder');
@@ -197,7 +199,7 @@ module.exports = function (grunt) {
     grunt.registerTask('updatePaths', ['bowerRequirejs:main', 'bowerRequirejs:test']);
 
     // Used by CD
-    grunt.registerTask('build', ['clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
+    grunt.registerTask('build', ['shell:add_models','clean','nodewebkit','copy:toApp']);   // The name is fixed. You can't change the name.
 
     // Unit testing
     grunt.registerTask('test', ['karma:unit']);

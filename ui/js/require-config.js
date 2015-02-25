@@ -68,7 +68,7 @@ requirejs.config({
         underscore: 'bower_components/underscore/underscore',
         'jquery.bootstrap': 'jquery.bootstrap',
         xtk: 'vendors/xtk.js',
-        models: require(['./lsModels'])
+        lsModels: './lsModels'
     },
     shim: {
         angular: {
@@ -174,6 +174,10 @@ requirejs.config({
         },
         underscore: {
             exports: '_'
+        }
+        ,
+        lsModels: {
+            exports: 'lsModels'
         }
     },
     xtk: {
