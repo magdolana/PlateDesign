@@ -1,4 +1,4 @@
-define(['angular'], function (angular) {
+define(['angular', 'lsModels'], function (angular) {
     'use strict';
     return angular.module('app.helloworld.ctrls', []).controller('helloCtrl', [
         '$scope', function($scope) {
