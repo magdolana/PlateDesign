@@ -9,16 +9,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-app.get('/', function(req,res){
-    res.send('Home');
-});
-
-
-app.post('/HelloWorld', function(req,res) {
-    var s = new helloService();
-    s.post(req, res);
-});
+app.use('/api', helloService); //mount our HelloWorld
 
 
 var server = app.listen(9090, function() {
