@@ -2,6 +2,7 @@ define(['angular', 'lsModels'], function (angular) {
     'use strict';
     return angular.module('app.helloworld.ctrls', []).controller('helloCtrl', [
         '$scope', function($scope) {
+            $scope.helloworld = 'helloworld';
             var user = LabUser({userName:'qaadmin1'});
             $scope.hello = 'Hello ' + user.userName;
         }
