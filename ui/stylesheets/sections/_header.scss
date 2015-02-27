@@ -50,7 +50,7 @@ $logo-width: 110px;
         z-index: 10;
         position: absolute;
         width: 100%;
-        left: 50px;
+        left: 0;
         height: $header_height;
         line-height: $header_height;
         text-align: left;
@@ -59,8 +59,9 @@ $logo-width: 110px;
             display: inline-block;
             width: 350px; //220px;
         }
-
+  
         > a {
+            left: 50px;
             font-size: 24px;
             vertical-align: middle;
             color: $bright;
@@ -74,6 +75,7 @@ $logo-width: 110px;
 
     // 
     .menu-button {
+        z-index: 11;
         display: block;
         position: absolute;
         top:  ( $header_height/2 - 17);
