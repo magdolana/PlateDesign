@@ -14,6 +14,7 @@ define([
       'kendo-ui-core',
       'textAngular.min',
       'textAngular-sanitize',
+      'xtk',
 
       './config',
 
@@ -38,7 +39,8 @@ define([
       './Chart/ChartDirective',
 
       './HelloWorld/HelloWorldCtrl',
-      './HelloWorld/HelloWorldService'
+      './HelloWorld/HelloWorldService',
+      './xtkDemo/xtkDirective'
 
     ], function (ng) {
       'use strict';
@@ -67,6 +69,7 @@ define([
           'app.chart.directives',
           'app.helloworld.services',
           'app.helloworld.ctrls',
+          'app.xtk.directives',
 
           'app.constants'
       ]);
