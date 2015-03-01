@@ -69,7 +69,7 @@ requirejs.config({
         toastr: 'bower_components/toastr/toastr',
         underscore: 'bower_components/underscore/underscore',
         'jquery.bootstrap': 'jquery.bootstrap',
-        xtk: 'vendors/xtk.js',
+        xtk: 'vendors/xtk',
         lsModels: './lsModels',
         textAngularSetup: 'bower_components/textAngular/src/textAngularSetup'
     },
@@ -168,7 +168,7 @@ requirejs.config({
             exports: 'lsModels'
         },
         xtk: {
-            exports: 'xtk'
+            exports: 'X'
         },
         packages: [
 
