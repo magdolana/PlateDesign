@@ -180,6 +180,12 @@ module.exports = function (grunt) {
             add_models: {
                 command: 'gulp js'
             }
+        },
+        watch: {
+            sass: {
+                files: ['ui/stylesheets/**/*.scss'],
+                tasks: ['compass']
+            }
         }
     });
     grunt.loadNpmTasks('grunt-node-webkit-builder');

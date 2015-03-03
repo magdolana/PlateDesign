@@ -1,3 +1,5 @@
+$logo-width: 110px;
+
 .top-header {
     z-index: 10;
     position: absolute;
@@ -30,8 +32,10 @@
         display: none;
         z-index: 11;
         position: absolute;
-        left: 180px;
+        left: 0;
         top: 10px;
+        width: 50px;
+        text-align: center;
         line-height: 30px;
         font-size: 18px;
         color: #ccc;
@@ -43,18 +47,22 @@
 
     //
     .logo {
+        z-index: 10;
         position: absolute;
         width: 100%;
+        left: 0;
         height: $header_height;
         line-height: $header_height;
-        text-align: center;
+        text-align: left;
         background-color: $dark;
         @media (min-width: $screen-sm) {
             display: inline-block;
-            width: 220px;
+            width: 350px; //220px;
         }
-
+  
         > a {
+            position: relative;
+            left: 50px;
             font-size: 24px;
             vertical-align: middle;
             color: $bright;
@@ -68,6 +76,7 @@
 
     // 
     .menu-button {
+        z-index: 11;
         display: block;
         position: absolute;
         top:  ( $header_height/2 - 17);
