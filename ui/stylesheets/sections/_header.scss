@@ -50,7 +50,7 @@ $logo-width: 110px;
         z-index: 10;
         position: absolute;
         width: 100%;
-        left: 50px;
+        left: 50px; //offset from burger
         height: $header_height;
         line-height: $header_height;
         text-align: left;
