@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', helloService); //mount our HelloWorld
 
+//Default return if invalid request given
+app.use(function(req, res) {
+    res.status(404).json({message: 'No handle defined for route'});
+});
 
 var server = app.listen(9090, function() {
     var host = server.address().address;
