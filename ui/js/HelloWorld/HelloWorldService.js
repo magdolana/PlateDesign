@@ -14,7 +14,7 @@ define(['angular'], function (angular) {
             $log.debug('Services Url: ' + servicesUrl);
             $log.debug('Name: ' + name);
             //$http methods return promise which then can be used to register callbacks for success and error
-            var request = $http.post( servicesUrl + '/HelloWorld', { name: name } );
+            var request = $http.post( servicesUrl + '/api/HelloWorld', { name: name } );
             return( request.then( handleSuccess, handleError ) ); //TODO: handle case neither success nor failure returned
         };
         function handleError( response ) {
