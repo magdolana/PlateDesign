@@ -25,6 +25,19 @@
         </ul>
 
         <ul class="nav-right pull-right list-unstyled">
+            <li>
+                <form class="search" role="search" data-ng-controller="searchCtrl">
+                    <div class="input-group">
+                        <input type="text"
+                               placeholder="search"
+                               class="form-control"
+                               data-ng-model="searchKeywords" data-ng-keyup="contextSearch()">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </li>
             <li class="dropdown langs text-normal" dropdown is-open="status.isopenLang" data-ng-controller="LangCtrl">
                 <a href="javascript:;" class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                     {{lang}}

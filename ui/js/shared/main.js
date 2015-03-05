@@ -23,6 +23,16 @@ define(['angular', 'underscore'], function (angular) {
         return $scope.taskRemainingCount = count;
       });
     }
+  ]).controller('searchCtrl', ['$rootScope', '$scope', '$location', '$log',
+      function ($rootScope, $scope, $location, $log) {
+          $scope.contextSearch = function() {
+              var state = $location.path();
+              var eventName = 'SEARCH' + state;
+              $log.log('Search event: ' + eventName);
+              $log.log('Keywords: ' + $scope.searchKeywords);
+              $rootScope.$broadcast(eventName, $scope.searchKeywords);
+          }
+      }
   ]).controller('DashboardCtrl', [
     '$scope', function($scope) {
       $scope.comboChartData = [['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'], ['2014/05', 165, 938, 522, 998, 450, 614.6], ['2014/06', 135, 1120, 599, 1268, 288, 682], ['2014/07', 157, 1167, 587, 807, 397, 623], ['2014/08', 139, 1110, 615, 968, 215, 609.4], ['2014/09', 136, 691, 629, 1026, 366, 569.6]];
