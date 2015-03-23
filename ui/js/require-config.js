@@ -71,7 +71,9 @@ requirejs.config({
         'jquery.bootstrap': 'jquery.bootstrap',
         xtk: 'vendors/xtk',
         lsModels: './lsModels',
-        textAngularSetup: 'bower_components/textAngular/src/textAngularSetup'
+        textAngularSetup: 'bower_components/textAngular/src/textAngularSetup',
+        'angular-aria': 'bower_components/angular-aria/angular-aria',
+        'angular-material': 'bower_components/angular-material/angular-material'
     },
     shim: {
         angular: {
@@ -80,6 +82,12 @@ requirejs.config({
             ],
             exports: 'angular'
         },
+        'angular-aria': [
+            'angular'
+        ],
+        'angular-material': [
+            'angular'
+        ],
         'angular-route': [
             'angular'
         ],
@@ -173,7 +181,10 @@ requirejs.config({
         packages: [
 
         ]
-    }
+    },
+    packages: [
+
+    ]
 });
 
 //After config requirejs, we need to call main.js

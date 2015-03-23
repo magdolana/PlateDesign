@@ -7,6 +7,8 @@ define([
       'angular-route',
       'angular-bootstrap',
       'angular-animate',
+      'angular-aria',
+      'angular-material',
       'angular-loading-bar',
       'angular.easy-pie-chart',
       'angular-wizard',
@@ -40,7 +42,11 @@ define([
 
       './HelloWorld/HelloWorldCtrl',
       './HelloWorld/HelloWorldService',
-      './xtkDemo/xtkDirective'
+      './xtkDemo/xtkDirective',
+
+      './Users/UserController',
+      './Users/UserService',
+      './Users/starterApp'
 
     ], function (ng) {
       'use strict';
@@ -48,6 +54,8 @@ define([
           'ngRoute',
           'ngAnimate',
           'ngSanitize',
+          'ngAria',
+          'ngMaterial',
           'ui.bootstrap',
           'kendo.directives',
           'easypiechart',
@@ -71,6 +79,10 @@ define([
           'app.helloworld.ctrls',
           'app.xtk.directives',
 
-          'app.constants'
+          'app.constants',
+
+          /* Google Material*/
+          'users',
+          'starterApp'
       ]);
 });

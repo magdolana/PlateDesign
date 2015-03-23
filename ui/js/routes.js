@@ -11,6 +11,7 @@ define(['./app'], function (app) {
                 redirectTo: '/dashboard'
             }).when('/dashboard', {
                 templateUrl: 'ui/views/dashboard.html'
+                /*
             }).when('/ui/typography', {
                 templateUrl: 'ui/views/ui/typography.html'
             }).when('/ui/buttons', {
@@ -77,6 +78,7 @@ define(['./app'], function (app) {
                 templateUrl: 'ui/views/helloworld/helloworld.html'
             }).when('/xtk', {
                 templateUrl: 'ui/views/xtk/xtk.html'
+                */
             }).otherwise({
                 redirectTo: '/404'
             });
