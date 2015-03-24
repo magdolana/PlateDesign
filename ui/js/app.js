@@ -4,46 +4,21 @@
  */
 define([
       'angular',
-      'angular-route',
-      'angular-bootstrap',
       'angular-animate',
       'angular-aria',
+      'angular-cookies',
       'angular-material',
-      'angular-loading-bar',
-      'angular.easy-pie-chart',
-      'angular-wizard',
-      'jquery-plugins',
-      'kendo-ui-core',
-      'textAngular.min',
-      'textAngular-sanitize',
+      'angular-messages',
+      'angular-resource',
+      'angular-route',
+      'angular-sanitize',
+      'angular-touch',
       'xtk',
-
-      './config',
-
-      './UI/UICtrl',
-      './UI/UIDirective',
-      './UI/UIService',
-
-      './shared/directives',
-      './shared/localize',
-      './shared/main',
-
-      './Form/FormCtrl',
-      './Form/FormDirective',
-      './Form/FormValidation',
-
-      './Table/TableCtrl',
-
-      './Task/Task',
-
-
-      './Chart/ChartCtrl',
-      './Chart/ChartDirective',
-
+      /* Inject Custom Dependencies */
       './HelloWorld/HelloWorldCtrl',
       './HelloWorld/HelloWorldService',
-      './xtkDemo/xtkDirective',
-
+      './vendors/XTK/xtkDirective',
+      /* Inject AngularMaterial */
       './Users/UserController',
       './Users/UserService',
       './Users/starterApp'
@@ -51,37 +26,20 @@ define([
     ], function (ng) {
       'use strict';
       return ng.module('lsseedApp', [
-          'ngRoute',
           'ngAnimate',
-          'ngSanitize',
           'ngAria',
+          'ngCookies',
           'ngMaterial',
-          'ui.bootstrap',
-          'kendo.directives',
-          'easypiechart',
-          'mgo-angular-wizard',
-          'textAngular',
-          'angular-loading-bar',
-          'app.ui.ctrls',
-          'app.ui.directives',
-          'app.ui.services',
-          'app.controllers',
-          'app.directives',
-          'app.form.validation',
-          'app.ui.form.ctrls',
-          'app.ui.form.directives',
-          'app.tables',
-          'app.task',
-          'app.localization',
-          'app.chart.ctrls',
-          'app.chart.directives',
+          'ngMessages',
+          'ngResource',
+          'ngRoute',
+          'ngSanitize',
+          'ngTouch',
+          /* Custom Modules */
           'app.helloworld.services',
           'app.helloworld.ctrls',
           'app.xtk.directives',
-
-          'app.constants',
-
-          /* Google Material*/
+          /* AngularMaterial */
           'users',
           'starterApp'
       ]);

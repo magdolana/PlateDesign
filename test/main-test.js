@@ -81,7 +81,8 @@ requirejs.config({
     lsModels: './lsModels',
     'angular-aria': 'bower_components/angular-aria/angular-aria',
     'angular-material': 'bower_components/angular-material/angular-material',
-    textAngularSetup: 'bower_components/textAngular/src/textAngularSetup'
+    textAngularSetup: 'bower_components/textAngular/src/textAngularSetup',
+    'angular-messages': 'bower_components/angular-messages/angular-messages'
   },
   shim: {
     angular: {

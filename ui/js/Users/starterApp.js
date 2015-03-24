@@ -1,7 +1,6 @@
 define(['angular'], function(ng){
     'use strict';
-    ng
-        .module('starterApp', ['ngMaterial', 'users'])
+    ng.module('starterApp', ['users'])
         .config(function($mdThemingProvider, $mdIconProvider){
 
             $mdIconProvider
