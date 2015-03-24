@@ -8,9 +8,10 @@ define(['./app'], function (app) {
     app.config([
         '$routeProvider', function($routeProvider) {
             return $routeProvider.when('/', {
-                redirectTo: '/dashboard'
-            }).when('/dashboard', {
-                templateUrl: 'ui/views/dashboard.html'
+                redirectTo: '/user'
+            }).when('/user', {
+                templateUrl: 'ui/views/users/user.html'
+                /*
             }).when('/ui/typography', {
                 templateUrl: 'ui/views/ui/typography.html'
             }).when('/ui/buttons', {
@@ -77,6 +78,7 @@ define(['./app'], function (app) {
                 templateUrl: 'ui/views/helloworld/helloworld.html'
             }).when('/xtk', {
                 templateUrl: 'ui/views/xtk/xtk.html'
+                */
             }).otherwise({
                 redirectTo: '/404'
             });
