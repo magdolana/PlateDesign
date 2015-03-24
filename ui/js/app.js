@@ -19,9 +19,9 @@ define([
       './HelloWorld/HelloWorldService',
       './vendors/XTK/xtkDirective',
       /* Inject AngularMaterial */
+      './config',
       './Users/UserController',
-      './Users/UserService',
-      './Users/starterApp'
+      './Users/UserService'
 
     ], function (ng) {
       'use strict';
@@ -40,7 +40,7 @@ define([
           'app.helloworld.ctrls',
           'app.xtk.directives',
           /* AngularMaterial */
-          'users',
-          'starterApp'
+          'app.config',
+          'users'
       ]);
 });

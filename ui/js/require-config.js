@@ -22,7 +22,8 @@ requirejs.config({
         requirejs: 'bower_components/requirejs/require',
         'requirejs-domready': 'bower_components/requirejs-domready/domReady',
         xtk: 'vendors/XTK/xtk',
-        lsModels: './lsModels'
+        lsModels: './lsModels',
+        'material-design-icons': 'bower_components/material-design-icons/index.html'
     },
     shim: {
         angular: {

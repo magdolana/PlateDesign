@@ -82,7 +82,8 @@ requirejs.config({
     'angular-aria': 'bower_components/angular-aria/angular-aria',
     'angular-material': 'bower_components/angular-material/angular-material',
     textAngularSetup: 'bower_components/textAngular/src/textAngularSetup',
-    'angular-messages': 'bower_components/angular-messages/angular-messages'
+    'angular-messages': 'bower_components/angular-messages/angular-messages',
+    'material-design-icons': 'bower_components/material-design-icons/index.html'
   },
   shim: {
     angular: {

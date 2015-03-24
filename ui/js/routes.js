@@ -8,9 +8,9 @@ define(['./app'], function (app) {
     app.config([
         '$routeProvider', function($routeProvider) {
             return $routeProvider.when('/', {
-                redirectTo: '/dashboard'
-            }).when('/dashboard', {
-                templateUrl: 'ui/views/dashboard.html'
+                redirectTo: '/user'
+            }).when('/user', {
+                templateUrl: 'ui/views/users/user.html'
                 /*
             }).when('/ui/typography', {
                 templateUrl: 'ui/views/ui/typography.html'
