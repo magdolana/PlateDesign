@@ -21,7 +21,9 @@ define([
       /* Inject AngularMaterial */
       './config',
       './Users/UserController',
-      './Users/UserService'
+      './Users/UserService',
+      './queryprotocol/queryCtrl',
+
 
     ], function (ng) {
       'use strict';
@@ -41,6 +43,7 @@ define([
           'app.xtk.directives',
           /* AngularMaterial */
           'app.config',
-          'users'
+          'users',
+          'autocompletequery'
       ]);
 });

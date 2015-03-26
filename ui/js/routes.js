@@ -79,6 +79,8 @@ define(['./app'], function (app) {
             }).when('/xtk', {
                 templateUrl: 'ui/views/xtk/xtk.html'
                 */
+            }).when('/queryprotocol',{
+              templateUrl: 'ui/views/queryprotocol/queryprotocol.html'
             }).otherwise({
                 redirectTo: '/404'
             });

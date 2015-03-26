@@ -22,8 +22,8 @@
             <section data-ng-include=" 'ui/views/nav.html' "></section>
         </md-sidenav>
 
-        <md-content flex id="content">
-            <section data-ng-view></section>
+        <md-content flex layout="row" id="content">
+            <section flex layout="column" data-ng-view></section>
         </md-content>
     </div>
     <!--
