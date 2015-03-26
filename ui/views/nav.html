@@ -1,8 +1,14 @@
 <md-list>
+    <!-- Default users
     <md-item ng-repeat="it in ul.users">
         <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
             <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
             {{it.name}}
         </md-button>
+    </md-item> -->
+    <md-item>
+        <md-button href="#/queryprotocol">Search Protocol</md-button>
+        <md-icon md-svg-icon="{{'svg-10'}}" class="avatar"></md-icon>
+        <!-- <a href="#/view/autocomplete"> Autocomplete </a> -->
     </md-item>
 </md-list>
