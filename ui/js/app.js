@@ -14,6 +14,7 @@ define([
       'angular-sanitize',
       'angular-touch',
       'xtk',
+     'ngHandsontable',
       /* Inject Custom Dependencies */
       './HelloWorld/HelloWorldCtrl',
       './HelloWorld/HelloWorldService',
@@ -23,6 +24,7 @@ define([
       './Users/UserController',
       './Users/UserService',
       './queryprotocol/queryCtrl',
+     './PlateDesign/PlateCtrl'
 
 
     ], function (ng) {
@@ -37,6 +39,7 @@ define([
           'ngRoute',
           'ngSanitize',
           'ngTouch',
+          'ngHandsontable',
           /* Custom Modules */
           'app.helloworld.services',
           'app.helloworld.ctrls',
@@ -44,6 +47,7 @@ define([
           /* AngularMaterial */
           'app.config',
           'users',
-          'autocompletequery'
+          'autocompletequery',
+          'PlateDesign'
       ]);
 });

@@ -81,6 +81,8 @@ define(['./app'], function (app) {
                 */
             }).when('/queryprotocol',{
               templateUrl: 'ui/views/queryprotocol/queryprotocol.html'
+            }).when('/PlateDesign',{
+                templateUrl: 'ui/views/PlateDesign/PlateDesign.html'
             }).otherwise({
                 redirectTo: '/404'
             });

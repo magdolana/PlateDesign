@@ -83,7 +83,8 @@ requirejs.config({
     'angular-material': 'bower_components/angular-material/angular-material',
     textAngularSetup: 'bower_components/textAngular/src/textAngularSetup',
     'angular-messages': 'bower_components/angular-messages/angular-messages',
-    'material-design-icons': 'bower_components/material-design-icons/index.html'
+    'material-design-icons': 'bower_components/material-design-icons/index.html',
+    handsontable: 'bower_components/handsontable/dist/handsontable.full'
   },
   shim: {
     angular: {

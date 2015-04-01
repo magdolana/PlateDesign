@@ -23,7 +23,9 @@ requirejs.config({
         'requirejs-domready': 'bower_components/requirejs-domready/domReady',
         xtk: 'vendors/XTK/xtk',
         lsModels: './lsModels',
-        'material-design-icons': 'bower_components/material-design-icons/index.html'
+        'material-design-icons': 'bower_components/material-design-icons/index.html',
+        handsontable: 'bower_components/handsontable/dist/handsontable.full',
+        ngHandsontable: 'vendors/ngHandsontable.min'
     },
     shim: {
         angular: {
@@ -59,12 +61,19 @@ requirejs.config({
         'angular-touch': [
             'angular'
         ],
+        handsontable: {
+            exports: 'Handsontable'
+        },
+        ngHandsontable: {
+            deps: ['angular']
+        },
         lsModels: {
             exports: 'lsModels'
         },
         xtk: {
             exports: 'X'
         },
+
         packages: [
 
         ]

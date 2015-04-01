@@ -1,0 +1,30 @@
+<div ng-controller="PlateDesignCtrl" flex layout="column">
+
+    <div class="warning">
+
+        <p style="font-size: 20px"><strong>Key</strong> <span>
+        <p>Please use the following keys:</p>
+
+        <ul>
+            <li>c for compounds</li>
+            <li> n for neutral</li>
+        </ul>
+
+
+
+
+
+<hot-table flex
+        settings="{colHeaders: true, contextMenu: ['row_above', 'row_below', 'remove_row'], afterChange: afterChange }"
+        rowHeaders="true"
+
+        minSpareRows="minSpareRows"
+        minRows = "32"
+        minCols = "48"
+        datarows="data"
+        height="300"
+        width="700">
+
+</hot-table>
+</div>
+</div>
